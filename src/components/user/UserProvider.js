@@ -14,7 +14,7 @@ export const UserProvider = (props) => {
 
 
     const getUserById = userId => {
-        return fetch(`http://localhost:8088/users/${userId}`)
+        return fetch(`http://localhost:8088/users/${userId}?_embed=animals&_expand=location`)
         .then(res => res.json())
     }
 
