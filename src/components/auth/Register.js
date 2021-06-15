@@ -101,6 +101,11 @@ export const Register = (props) => {
                 <fieldset>
                     <button type="submit"> Create Account </button>
                 </fieldset>
+                <fieldset>
+                <button className="btn go-back-btn" onClick={() => {
+                    history.push("/login")
+                    }}>Go Back</button>
+                </fieldset>
             </form>
         </main>
     )
