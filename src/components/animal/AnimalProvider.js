@@ -18,6 +18,12 @@ export const AnimalProvider = (props) => {
         .then(res => res.json())
     }
 
+    
+    const getAnimalByUserId = userId => {
+        return fetch(`http://localhost:8088/animals/${userId}?_expand=user&_expand=animalEnergyLevel&_expand=animalSize&_expand=animalGender`)
+        .then(res => res.json())
+    }
+
 
     const addAnimal = animalObj => {
         return fetch("http://localhost:8088/animals", {
@@ -55,7 +61,8 @@ export const AnimalProvider = (props) => {
         <AnimalContext.Provider value= {
             {
                 animals, getAnimals, addAnimal,
-                removeAnimal, getAnimalById, updateAnimal
+                removeAnimal, getAnimalById, updateAnimal,
+                getAnimalByUserId
             }
         }>
             {props.children}

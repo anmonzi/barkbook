@@ -1,5 +1,6 @@
 import React from "react"
 import { Route } from "react-router-dom"
+import { AnimalProvider } from "./animal/AnimalProvider"
 import { LocationDetail } from "./location/LocationDetail"
 import { LocationFriends } from "./location/LocationFriends"
 import { LocationList } from "./location/LocationList"
@@ -15,9 +16,11 @@ export const ApplicationViews = () => {
             {/* Render user/animal profile page */}
             <UserProvider>
                 <LocationProvider>
-                    <Route exact path="/profile">
-                        <UserProfile />
-                    </Route>
+                    <AnimalProvider>
+                        <Route exact path="/profile">
+                            <UserProfile />
+                        </Route>
+                    </AnimalProvider>
                 </LocationProvider>
             </UserProvider>
 
