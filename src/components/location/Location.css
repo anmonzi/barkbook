@@ -1,0 +1,39 @@
+.locations-title {
+    text-align: center;
+}
+
+.locationsParent__flex {
+    display: flex;
+    justify-content: center;
+}
+
+.locations {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-basis: 55%;
+  }
+  
+  .location {
+      flex-basis: 25%;
+      margin: 1em;
+      padding: 1em;
+      background: linear-gradient(90deg, rgba(242, 242, 242, 0.324) 0%, rgba(235, 235, 235, 0.447) 80%);
+      box-shadow: 0px 0px 6px rgb(212, 212, 212);
+      text-align: center;
+      border-radius: 20px;
+  }
+
+
+  .location__link {
+    text-decoration: none;
+    color: #6568F4;
+  }
+
+
+  .location:hover {
+    background: linear-gradient(90deg, rgba(110, 94, 254) 0%, rgba(73, 63, 252) 80%);
+    transition: all 0.2s ease-out;
+  }
+
+  

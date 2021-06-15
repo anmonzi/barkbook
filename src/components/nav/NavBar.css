@@ -1,0 +1,53 @@
+.navbar {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    background: linear-gradient(90deg, rgb(110, 94, 254) 0%, rgba(73, 63, 252) 100%);
+    padding: 1rem;
+    margin-top: 0;
+}
+
+.navbar__item {
+    flex-basis: 20%;
+    list-style-type: none;
+    text-align: center;
+    padding-bottom: .5rem;
+
+}
+
+.navbar__link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    padding: 0.5rem 1rem;
+}
+
+.hover:hover {
+    background-color: #6d76f7;
+    border-radius: 18px;
+    transition: all 0.2s ease-out;
+}
+
+.hover:active {
+    background-color: #6668f4;
+    opacity: 1;
+    transition: all 0.5s ease;
+}
+
+.mail__icon {
+    max-width: 2.5rem;
+}
+
+.logout__button {
+    padding: 0.5rem 1rem;
+    border-radius: 18px;
+    background-color: #3acbf7;
+}
+
+.logout__button:hover {
+    background: #fff;
+    color: #6568F4;
+    transition: all 0.3s ease-out;
+}
