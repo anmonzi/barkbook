@@ -10,11 +10,7 @@ export const NavBar = (props) => {
     return (
         <ul className="navbar">
             <li className="navbar__item navbar__logo">
-                <Link className="navbar__link" onClick={
-                    (event) => {
-                        history.push("/profile")
-                    }
-                }>Temp Home Button</Link>
+                <Link className="navbar__link" to="/profile">Temp Home Button</Link>
             </li>
             <li className="navbar__item">
                 <Link className="navbar__link hover" to="/locations">Find A Pal</Link>
