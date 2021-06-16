@@ -5,6 +5,8 @@ import { AnimalProvider } from "./animal/AnimalProvider"
 import { AnimalEnergyLevelProvider } from "./animalEnergyLevel/AnimalEnergyLevelProvider"
 import { AnimalGenderProvider } from "./animalGender/AnimalGenderProvider"
 import { AnimalSizeProvider } from "./animalSize/AnimalSizeProvider"
+import { MessageList } from "./directMessage/DirectMessageList"
+import { DirectMessageProvider } from "./directMessage/DirectMessageProvider"
 import { LocationDetail } from "./location/LocationDetail"
 import { LocationFriends } from "./location/LocationFriends"
 import { LocationList } from "./location/LocationList"
@@ -33,8 +35,7 @@ export const ApplicationViews = () => {
                 </LocationProvider>
             </UserProvider>
 
-            {/* Render Animal Forms */}
-            
+            {/* Render Animal Forms */}   
             <AnimalEnergyLevelProvider>
                 <AnimalGenderProvider>
                     <AnimalSizeProvider>
@@ -68,6 +69,13 @@ export const ApplicationViews = () => {
                     </Route>
                 </UserProvider>
             </LocationProvider>
+
+            {/* Render Direct Messages */}
+            <DirectMessageProvider>
+                    <Route exact path="/messages">
+                        <MessageList />
+                    </Route>
+            </DirectMessageProvider>
         </>
     )
 }
