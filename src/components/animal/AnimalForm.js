@@ -62,7 +62,7 @@ export const AnimalForm = () => {
 
     const handleRemove = () => {
         removeAnimal(animal.id)
-            .then(() => {
+            .then(() => { 
                 history.push("/profile")
             })
     }
@@ -100,7 +100,7 @@ export const AnimalForm = () => {
             <fieldset>
                 <div className="form-group">
                 <label htmlFor="animalBreed">Pet breed: </label>
-                <input type="text" id="animalBreed" name="breed" required autoFocus className="form-control"
+                <input type="text" id="animalBreed" name="breed" required className="form-control"
                 placeholder="Pet breed"
                 onChange={handleControlledInputChange}
                 defaultValue={animal.breed}/>
@@ -109,7 +109,7 @@ export const AnimalForm = () => {
             <fieldset>
                 <div className="form-group">
                 <label htmlFor="animalAge">Pet Age:</label>
-                <input type="number" id="petAge" name="age" required autoFocus className="form-control" value={animal.age} onChange={handleControlledInputChange} />
+                <input type="number" id="petAge" name="age" required className="form-control" value={animal.age} onChange={handleControlledInputChange} />
                 </div>
             </fieldset>
             <fieldset>
@@ -171,7 +171,7 @@ export const AnimalForm = () => {
                 }}>
             {animalId ? <>Update Animal</> : <>Add Animal</>}</button>
             {/* Ternary for delete button - if there's no animal.id don't show button */}
-            {animal.id
+            {animalId
             ? <button className="btn btn-primary" onClick={handleRemove}>Delete Pet</button>
             : <></> }
             </form>

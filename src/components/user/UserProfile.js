@@ -17,10 +17,17 @@ export const UserProfile = () => {
 
     useEffect(() => {
         getUserById(userId).then(setUser)
-    },[])
+    }, [])
 
     useEffect(() => {
-        getAnimalByUserId(userId).then(setAnimal)
+        getAnimalByUserId(userId).then((animal) => {
+            if (animal.length === 0) {
+                setAnimal({})
+            } else {
+            const animalObj = animal[0]
+            setAnimal(animalObj)
+            }
+        })
     },[])
     
             
