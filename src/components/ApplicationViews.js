@@ -1,6 +1,10 @@
 import React from "react"
 import { Route } from "react-router-dom"
+import { AnimalForm } from "./animal/AnimalForm"
 import { AnimalProvider } from "./animal/AnimalProvider"
+import { AnimalEnergyLevelProvider } from "./animalEnergyLevel/AnimalEnergyLevelProvider"
+import { AnimalGenderProvider } from "./animalGender/AnimalGenderProvider"
+import { AnimalSizeProvider } from "./animalSize/AnimalSizeProvider"
 import { LocationDetail } from "./location/LocationDetail"
 import { LocationFriends } from "./location/LocationFriends"
 import { LocationList } from "./location/LocationList"
@@ -28,6 +32,25 @@ export const ApplicationViews = () => {
                     </AnimalProvider>
                 </LocationProvider>
             </UserProvider>
+
+            {/* Render Animal Forms */}
+            
+            <AnimalEnergyLevelProvider>
+                <AnimalGenderProvider>
+                    <AnimalSizeProvider>
+                        <AnimalProvider>
+                            <Route exact path="/profile/create-animal">
+                                <AnimalForm />
+                            </Route>
+
+                            <Route exact path="/profile/edit-animal/:animalId(\d+)">
+                                <AnimalForm />
+                            </Route>
+                        </AnimalProvider>
+                    </AnimalSizeProvider>
+                </AnimalGenderProvider>
+            </AnimalEnergyLevelProvider>
+            
 
             {/* Render locations */}
             <LocationProvider>

@@ -20,7 +20,7 @@ export const AnimalProvider = (props) => {
 
     
     const getAnimalByUserId = userId => {
-        return fetch(`http://localhost:8088/animals/${userId}?_expand=user&_expand=animalEnergyLevel&_expand=animalSize&_expand=animalGender`)
+        return fetch(`http://localhost:8088/animals/?userId=${userId}&_expand=user&_expand=animalEnergyLevel&_expand=animalSize&_expand=animalGender`)
         .then(res => res.json())
     }
 
