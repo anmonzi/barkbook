@@ -1,0 +1,31 @@
+.messages-title {
+    text-align: center;
+}
+
+.messagesParent-flex {
+    display: flex;
+    justify-content: center;
+}
+
+.messages {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+}
+
+.message {
+    flex-basis: 25%;
+    margin: 1em;
+    padding: 1em;
+    background: linear-gradient(90deg, rgba(242, 242, 242, 0.324) 0%, rgba(235, 235, 235, 0.447) 80%);
+    box-shadow: 0px 0px 6px rgb(212, 212, 212);
+    text-align: center;
+    border-radius: 20px;
+}
+
+.btn-delete-flex {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+    margin-right: 2rem;
+}
