@@ -42,6 +42,10 @@ export const ApplicationViews = () => {
                             <Route exact path="/profile/create-animal">
                                 <AnimalForm />
                             </Route>
+
+                            <Route exact path="/profile/edit-animal/:animalId(\d+)">
+                                <AnimalForm />
+                            </Route>
                         </AnimalProvider>
                     </AnimalSizeProvider>
                 </AnimalGenderProvider>

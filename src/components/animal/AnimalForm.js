@@ -32,6 +32,7 @@ export const AnimalForm = () => {
             // PUT - update
             updateAnimal({
                 id: animal.id,
+                name: animal.name,
                 userId: userId,
                 animalEnergyLevelId: parseInt(animal.animalEnergyLevelId),
                 animalSizeId: parseInt(animal.animalSizeId),
@@ -45,6 +46,7 @@ export const AnimalForm = () => {
         } else {
             // POST - add
             addAnimal({
+                name: animal.name,
                 userId: userId,
                 animalEnergyLevelId: parseInt(animal.animalEnergyLevelId),
                 animalSizeId: parseInt(animal.animalSizeId),
@@ -167,7 +169,7 @@ export const AnimalForm = () => {
                 event.preventDefault() // Prevent browser from submitting the form and refreshing the page
                 handleSaveAnimal() // handle put or post functionality  ->  ternary statement below - if there's an animalId then load save animal text...else add animal text
                 }}>
-            {animalId ? <>Save Animal</> : <>Add Animal</>}</button>
+            {animalId ? <>Update Animal</> : <>Add Animal</>}</button>
             {/* Ternary for delete button - if there's no animal.id don't show button */}
             {animal.id
             ? <button className="btn btn-primary" onClick={handleRemove}>Delete Pet</button>
