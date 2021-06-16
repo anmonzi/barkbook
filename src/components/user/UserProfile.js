@@ -43,19 +43,25 @@ export const UserProfile = () => {
                                 history.push(`/profile/edit/${user.id}`)
                             }}>Edit Profile</button>
                     </div>
-                    <div className="profileCards__animal">
-                        <div><img className="user__image avatar" src={ animal.imageURL }></img></div>
-                        <div>{ animal.name }</div>
-                        <div>{ animal.breed }</div>
-                        <div>{ animal.age }</div>
-                        <div>{ animal.energyLevel }</div>
-                        <div>{ animal.animalSize }</div>
-                        <div>{  }</div>
-                        <div className="description">{ animal.description }</div>
-                        <button className="btn btn-edit" onClick={() => {
-                                history.push(`/profile/edit/${animal.id}`)
-                            }}>Edit Profile</button>
-                    </div>
+                    {animal.userId ? 
+                        <div className="profileCards__animal">
+                            <div><img className="user__image avatar" src={ animal.imageURL }></img></div>
+                            <div>{ animal.name }</div>
+                            <div>{ animal.breed }</div>
+                            <div>{ animal.age }</div>
+                            <div>{ animal.energyLevel }</div>
+                            <div>{ animal.animalSize }</div>
+                            <div>{  }</div>
+                            <div className="description">{ animal.description }</div>
+                            <button className="btn btn-edit" onClick={() => {
+                                    history.push(`/profile/edit/${animal.id}`)
+                                }}>Edit Profile</button>
+                        </div> : 
+                        <div>
+                            <button onClick={() => history.push("/profile/create-animal")}>
+                            Add Pet
+                            </button>
+                        </div>}
                 </div>
             </div>
         </section>

@@ -1,7 +1,7 @@
 .navbar {
     display: flex;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 0;
     background: linear-gradient(90deg, rgb(110, 94, 254) 0%, rgba(73, 63, 252) 100%);
@@ -9,10 +9,15 @@
     margin-top: 0;
 }
 
+.navbar__logo {
+    display: flex;
+    justify-content: flex-start;
+}
+
 .navbar__item {
     flex-basis: 20%;
     list-style-type: none;
-    text-align: center;
+    text-align: right;
     padding-bottom: .5rem;
 
 }
