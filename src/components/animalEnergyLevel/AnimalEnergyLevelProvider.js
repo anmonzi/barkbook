@@ -12,6 +12,8 @@ export const AnimalEnergyLevelProvider = (props) => {
         .then((data) => setAnimalEnergyLevels(data))
     }
 
+    
+
     return (
         <AnimalEnergyLevelContext.Provider value= {
             {

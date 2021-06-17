@@ -13,10 +13,16 @@ export const LocationProvider = (props) => {
     }
 
 
+    const getLocationById = locationId => {
+        return fetch(`http://localhost:8088/locations/${locationId}?_embed=users`)
+        .then(res => res.json())
+    }
+
+
     return (
         <LocationContext.Provider value= {
             {
-                locations, getLocations
+                locations, getLocations, getLocationById
             }
         }>
             {props.children}
