@@ -7,7 +7,7 @@ import { AnimalGenderProvider } from "./animalGender/AnimalGenderProvider"
 import { AnimalSizeProvider } from "./animalSize/AnimalSizeProvider"
 import { MessageList } from "./directMessage/DirectMessageList"
 import { DirectMessageProvider } from "./directMessage/DirectMessageProvider"
-import { LocationDetail } from "./location/LocationDetail"
+import { LocationAnimalDetail } from "./location/LocationAnimalDetail"
 import { LocationFriends } from "./location/LocationFriends"
 import { LocationList } from "./location/LocationList"
 import { LocationProvider } from "./location/LocationProvider"
@@ -56,17 +56,19 @@ export const ApplicationViews = () => {
             {/* Render locations */}
             <LocationProvider>
                 <UserProvider>
-                    <Route exact path="/locations">
-                        <LocationList />
-                    </Route>
+                    <AnimalProvider>
+                        <Route exact path="/locations">
+                            <LocationList />
+                        </Route>
 
-                    <Route exact path="/locations/friends/:locationId(\d+)">
-                        <LocationFriends />
-                    </Route>
+                        <Route exact path="/locations/friends/:locationId(\d+)">
+                            <LocationFriends />
+                        </Route>
 
-                    <Route path="/locations/detail/:userId(\d+)">
-                        <LocationDetail />
-                    </Route>
+                        <Route path="/locations/detail/:animalId(\d+)">
+                            <LocationAnimalDetail />
+                        </Route>
+                        </AnimalProvider>
                 </UserProvider>
             </LocationProvider>
 

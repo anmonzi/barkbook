@@ -168,7 +168,7 @@ export const AnimalForm = () => {
             {animalId
             ? <button className="btn btn-primary" onClick={() => {
                 removeAnimal(animalId)
-                .then(() => history.push("/profile"))
+                history.push("/profile")
             }}>Delete Pet</button>
             : <></> }
             </form>
