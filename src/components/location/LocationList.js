@@ -12,7 +12,7 @@ export const LocationList = () => {
 
     return (
         <>
-            <h1 className="locations-title">Search Locations</h1>
+            <h1 className="locations-title title">Search Locations</h1>
 
             <div className="locationsParent__flex">
                 <div className="locations">
