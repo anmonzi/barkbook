@@ -60,12 +60,6 @@ export const AnimalForm = () => {
         }
     }
 
-    const handleRemove = () => {
-        removeAnimal(animal.id)
-            .then(() => { 
-                history.push("/profile")
-            })
-    }
 
 
     useEffect(() => {
@@ -172,7 +166,10 @@ export const AnimalForm = () => {
             {animalId ? <>Update Animal</> : <>Add Animal</>}</button>
             {/* Ternary for delete button - if there's no animal.id don't show button */}
             {animalId
-            ? <button className="btn btn-primary" onClick={handleRemove}>Delete Pet</button>
+            ? <button className="btn btn-primary" onClick={() => {
+                removeAnimal(animalId)
+                .then(() => history.push("/profile"))
+            }}>Delete Pet</button>
             : <></> }
             </form>
         </div>

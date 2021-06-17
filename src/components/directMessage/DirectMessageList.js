@@ -22,8 +22,11 @@ export const MessageList = () => {
 
             <div className="messagesParent-flex">
                 <div className="messages">
-                    {
-                        userMessages.map(message => 
+                    {userMessages.length > 0 
+                    ? 
+                    <>
+                        {
+                            userMessages.map(message => 
                             <>
                                 <div className="message" key={message.id}>
                                     <div className="message__subject">From: { message.user.name } </div>
@@ -37,7 +40,10 @@ export const MessageList = () => {
                                     </div>
                                 </div>
                             </>                            
-                        )}  
+                        )}
+                    </> 
+                    : 
+                    <><h2>You Currently Have No Messages</h2></>}
                 </div>
             </div>
         </>

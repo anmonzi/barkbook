@@ -14,11 +14,12 @@ export const UserProfile = () => {
     const history = useHistory()
     const userId = parseInt(localStorage.getItem("barkbook_user"))
     
-
+    // Grab current user
     useEffect(() => {
-        getUserById(userId).then(setUser)
+        getUserById(userId).then(setUser) 
     }, [])
 
+    // Grab user dog if available
     useEffect(() => {
         getAnimalByUserId(userId).then((animal) => {
             if (animal.length === 0) {
