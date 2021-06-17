@@ -22,6 +22,7 @@ export const LocationList = () => {
                                 <Link className="location__link" to={`/locations/friends/${location.id}`}>
                                     <div className="location__card">
                                         <h3 className="location__name">{ location.name }</h3>
+                                         {location.users.length} Friends Waiting
                                     </div>
                                 </Link>
                         </div>
