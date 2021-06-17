@@ -7,6 +7,7 @@ import { AnimalGenderProvider } from "./animalGender/AnimalGenderProvider"
 import { AnimalSizeProvider } from "./animalSize/AnimalSizeProvider"
 import { MessageList } from "./directMessage/DirectMessageList"
 import { DirectMessageProvider } from "./directMessage/DirectMessageProvider"
+import { DirectMessageForm } from "./directMessage/MessageForm"
 import { LocationAnimalDetail } from "./location/LocationAnimalDetail"
 import { LocationFriends } from "./location/LocationFriends"
 import { LocationList } from "./location/LocationList"
@@ -57,18 +58,24 @@ export const ApplicationViews = () => {
             <LocationProvider>
                 <UserProvider>
                     <AnimalProvider>
-                        <Route exact path="/locations">
-                            <LocationList />
-                        </Route>
+                        <DirectMessageProvider>
+                            <Route exact path="/locations">
+                                <LocationList />
+                            </Route>
 
-                        <Route exact path="/locations/friends/:locationId(\d+)">
-                            <LocationFriends />
-                        </Route>
+                            <Route exact path="/locations/friends/:locationId(\d+)">
+                                <LocationFriends />
+                            </Route>
 
-                        <Route path="/locations/detail/:animalId(\d+)">
-                            <LocationAnimalDetail />
-                        </Route>
-                        </AnimalProvider>
+                            <Route path="/locations/detail/:animalId(\d+)">
+                                <LocationAnimalDetail />
+                            </Route>
+
+                            <Route path="/locations/message/:userId(\d+)">
+                                <DirectMessageForm />
+                            </Route>
+                        </DirectMessageProvider>
+                    </AnimalProvider>
                 </UserProvider>
             </LocationProvider>
 
