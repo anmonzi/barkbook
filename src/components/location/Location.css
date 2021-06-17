@@ -1,39 +1,69 @@
-.locations-title {
-    text-align: center;
+.title {
+  text-align: center;
 }
 
 .locationsParent__flex {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .locations {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    flex-basis: 55%;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-basis: 55%;
+}
   
-  .location {
-      flex-basis: 25%;
-      margin: 1em;
-      padding: 1em;
-      background: linear-gradient(90deg, rgba(242, 242, 242, 0.324) 0%, rgba(235, 235, 235, 0.447) 80%);
-      box-shadow: 0px 0px 6px rgb(212, 212, 212);
-      text-align: center;
-      border-radius: 20px;
-  }
+.location {
+  flex-basis: 25%;
+  margin: 1em;
+  padding: 1em;
+  background: linear-gradient(90deg, rgba(242, 242, 242, 0.324) 0%, rgba(235, 235, 235, 0.447) 80%);
+  box-shadow: 0px 0px 6px rgb(212, 212, 212);
+  text-align: center;
+  border-radius: 20px;
+}
 
 
-  .location__link {
-    text-decoration: none;
-    color: #6568F4;
-  }
+.location__link {
+  text-decoration: none;
+  color: #6568F4;
+}
 
 
-  .location:hover {
-    background: linear-gradient(90deg, rgba(110, 94, 254) 0%, rgba(73, 63, 252) 80%);
-    transition: all 0.2s ease-out;
-  }
+.location:hover {
+  background: linear-gradient(90deg, rgba(110, 94, 254) 0%, rgba(73, 63, 252) 80%);
+  transition: all 0.2s ease-out;
+}
 
-  
+.parentCard-flex {
+  display: flex;
+  justify-content: center;
+}
+
+.detail__card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 900px;
+  box-shadow: 0px 0px 6px rgb(212, 212, 212);
+  border-radius: 20px;
+}
+
+.detail__cardAnimal {
+  width: 900px;
+  height: 500px;
+  margin-left: 9rem;
+}
+
+.detail__cardUser {
+  width: 900px;
+  height: 500px;
+}
+
+.button-message {
+  display: flex;
+  justify-content: center;
+  margin-top: 4.5rem;
+}
+

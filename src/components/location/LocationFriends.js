@@ -41,10 +41,10 @@ export const LocationFriends = () => {
 
     return (
         <>
+            <h1 className="location__name title">{ location.name } Friends</h1>
             <button className="btn go-back-btn" onClick={() => {
                 history.push("/locations")
             }}>Go Back</button>
-            <h1 className="location__name">{ location.name } Friends</h1>
             <section className="dog__cards">  
                            
                     <div className="dog__card">
