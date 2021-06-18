@@ -21,17 +21,19 @@ export const LocationAnimalDetail = () => {
                 <div className="detail__card">
                     <div className="detail__cardAnimal">
                         <div><img className="user__image avatar" src={ animal.imageURL } alt="Users dog"></img></div>
-                        <div>Name: { animal.name }</div>
-                        <div>Breed: { animal.breed }</div>
-                        <div>Age: { animal.age }</div>
-                        <div>Pet Gender: {animal.animalGender.gender}</div>
-                        <div>Pet Size: {animal.animalSize.size}</div>
-                        <div>Energy Level: {animal.animalEnergyLevel.energyLevel}</div>
+                        <div><b>Name:</b> { animal.name }</div>
+                        <div><b>Breed:</b> { animal.breed }</div>
+                        <div><b>Age:</b> { animal.age }</div>
+                        <div><b>Pet Gender:</b> {animal.animalGender.gender}</div>
+                        <div><b>Pet Size:</b> {animal.animalSize.size}</div>
+                        <div><b>Energy Level:</b> {animal.animalEnergyLevel.energyLevel}</div>
+                        <br></br>
                         <div className="description">{ animal.description }</div>
                     </div>
                     <div className="detail__cardUser">
                         <div className="detail__avatar"><img className="user__image avatar" src={animal.user.imageURL} alt="Users headshot"></img></div>
-                        <div className="user__name">{ animal.user.name }</div>
+                        <div className="user__name"><b>{ animal.user.name }</b></div>
+                        <br></br>
                         <div className="description">{ animal.user.description }</div>
                     </div>
                 </div>

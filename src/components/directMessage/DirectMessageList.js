@@ -27,16 +27,16 @@ export const MessageList = () => {
                             userMessages.map(message => 
                             <>
                                 <div className="message" key={message.id}>
-                                    <div className="message__subject">From: { message.user.name } </div>
-                                    <div className="message__subject">Subject: { message.subject } </div>
-                                    <div className="message__subject">Sent:
+                                    <div className="message__subject"><b>From:</b> { message.user.name } </div>
+                                    <div className="message__subject"><b>Subject:</b> { message.subject } </div>
+                                    <div className="message__subject"><b>Sent:</b>
                                         {
                                             new Intl.DateTimeFormat('en-US', {year: 'numeric',
                                             month: '2-digit', day: '2-digit', hour: '2-digit',
                                             minute: '2-digit', second: '2-digit'}).format(message.date)
                                         }
                                     </div>
-                                    <div className="message__message">Message: { message.message } </div>
+                                    <div className="message__message"><b>Message:</b> { message.message } </div>
                                     <div className="btn-delete-flex">
                                         <button className="btn btn-delete" onClick={() => {
                                             removeMessage(message.id)
