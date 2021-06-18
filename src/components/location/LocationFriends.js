@@ -22,37 +22,38 @@ export const LocationFriends = () => {
     }, [locationId])
 
     useEffect(() => {
-        getUsers().then(getAnimals)
+        getAnimals().then(getUsers)
     }, [])
 
     useEffect(() => {
-        const foundUsers = users.filter(user => user.locationId === location.id)
+        const found = users.filter(user => user.locationId === parseInt(locationId))
         const foundAnimals = []
-        for(const user of foundUsers) {
+        for(const user of found) {
             const foundAnimal = animals.find(animal => animal.userId === user.id)
             if (foundAnimal !== undefined) {
                 foundAnimals.push(foundAnimal)
             }
         } 
         setLocationAnimals(foundAnimals)
-    }, [location])
-
+    }, [users])
     
 
     return (
         <>
             <h1 className="location__name title">{ location.name } Friends</h1>
-            <button className="btn go-back-btn" onClick={() => {
-                history.push("/locations")
-            }}>Go Back</button>
             <section className="dog__cards">  
                            
                     <div className="dog__card">
                         {locationAnimals.map(animal =>
                             <AnimalCard key={animal.id} animalObj={animal} />
-                        )}
+                            )}
                     </div>
             </section>
+            <div className="btn-flex">
+                <button className="btn go-back-btn" onClick={() => {
+                    history.push("/locations")
+                }}>Go Back</button>
+            </div>
         </>
     )
 }

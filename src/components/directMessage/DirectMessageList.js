@@ -14,8 +14,6 @@ export const MessageList = () => {
     
     const userMessages = messages.filter(message => message.recipientId === userId)
 
-    
-
     return (
         <>
             <h1 className="messages-title">Current Messages</h1>
@@ -31,7 +29,13 @@ export const MessageList = () => {
                                 <div className="message" key={message.id}>
                                     <div className="message__subject">From: { message.user.name } </div>
                                     <div className="message__subject">Subject: { message.subject } </div>
-                                    <div className="message__subject">Date: { message.date } </div>
+                                    <div className="message__subject">Sent:
+                                        {
+                                            new Intl.DateTimeFormat('en-US', {year: 'numeric',
+                                            month: '2-digit', day: '2-digit', hour: '2-digit',
+                                            minute: '2-digit', second: '2-digit'}).format(message.date)
+                                        }
+                                    </div>
                                     <div className="message__message">Message: { message.message } </div>
                                     <div className="btn-delete-flex">
                                         <button className="btn btn-delete" onClick={() => {
