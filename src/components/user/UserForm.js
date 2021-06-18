@@ -41,6 +41,7 @@ export const UserForm = () => {
             updateUser({
                 id: user.id,
                 name: user.name,
+                email: user.email,
                 locationId: locationId,
                 imageURL: user.imageURL,
                 description: user.description

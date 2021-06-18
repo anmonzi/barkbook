@@ -26,7 +26,7 @@ export const Register = (props) => {
 
     const handleRegister = (e) => {
         e.preventDefault()
-        console.log(locationId.current.value) //TODO delete this console.log 
+        
 
         existingUserCheck()
             .then((userExists) => {

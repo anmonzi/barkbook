@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom'
 import "./Location.css"
 
 export const LocationList = () => {
-    const { locations, getLocations, searchTerms } = useContext(LocationContext)
+    const { locations, getLocations, searchTerms, setSearchTerms } = useContext(LocationContext)
 
     const [filteredLocations, setFilteredLocations] = useState([])
+    
     
     useEffect(() => {
         getLocations()
@@ -21,6 +22,10 @@ export const LocationList = () => {
             setFilteredLocations(locations)
         }
     }, [searchTerms, locations])
+
+    useEffect(() => {
+        setSearchTerms("")
+    }, [])
 
     return (
         <>

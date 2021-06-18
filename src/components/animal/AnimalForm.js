@@ -81,7 +81,10 @@ export const AnimalForm = () => {
     return (
         <div className="form-flex">
             <form className="animal-form">
-            <h2 className="animalForm__title">New Pet</h2>
+            {animalId
+            ? <><h2 className="animalForm__title">Update Pet</h2></>
+            : <><h2 className="animalForm__title">New Pet</h2></>
+            }
             <fieldset>
                 <div className="form-group">
                 <label htmlFor="animalName">Pet name: </label>
