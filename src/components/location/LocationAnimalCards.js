@@ -11,7 +11,7 @@ export const AnimalCard = ({ animalObj }) => {
         <>
         <Link className="animalCard__link" to={`/locations/detail/${animalObj.id}`}>
             <div className="animalCard">
-                <div><img src={animalObj.imageURL} className="animalCard__avatar"></img></div>
+                <div><img src={animalObj.imageURL} className="animalCard__avatar" alt="Users dog"></img></div>
                 <div>
                     <div className="">Name: { animalObj.name } </div>
                     <div>Energy Level: { animalObj.animalEnergyLevel.energyLevel } </div>

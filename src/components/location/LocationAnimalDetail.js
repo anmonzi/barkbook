@@ -20,7 +20,7 @@ export const LocationAnimalDetail = () => {
             <div className="parentCard-flex">
                 <div className="detail__card">
                     <div className="detail__cardAnimal">
-                        <div><img className="user__image avatar" src={ animal.imageURL }></img></div>
+                        <div><img className="user__image avatar" src={ animal.imageURL } alt="Users dog"></img></div>
                         <div>Name: { animal.name }</div>
                         <div>Breed: { animal.breed }</div>
                         <div>Age: { animal.age }</div>
@@ -30,7 +30,7 @@ export const LocationAnimalDetail = () => {
                         <div className="description">{ animal.description }</div>
                     </div>
                     <div className="detail__cardUser">
-                        <div className="detail__avatar"><img className="user__image avatar" src={animal.user.imageURL}></img></div>
+                        <div className="detail__avatar"><img className="user__image avatar" src={animal.user.imageURL} alt="Users headshot"></img></div>
                         <div className="user__name">{ animal.user.name }</div>
                         <div className="description">{ animal.user.description }</div>
                     </div>

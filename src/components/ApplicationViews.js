@@ -14,7 +14,7 @@ import { LocationList } from "./location/LocationList"
 import { LocationProvider } from "./location/LocationProvider"
 import { UserForm } from "./user/UserForm"
 import { UserProfile } from "./user/UserProfile"
-import { UserContext, UserProvider } from "./user/UserProvider"
+import { UserProvider } from "./user/UserProvider"
 
 
 

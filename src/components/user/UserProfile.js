@@ -40,7 +40,7 @@ export const UserProfile = () => {
             <div className="parent-flex">
                 <div className="profileCards__flex">
                     <div className="profileCards__user">
-                        <div><img className="user__image avatar" src={user.imageURL}></img></div>
+                        <div><img className="user__image avatar" src={user.imageURL} alt="Users headshot"></img></div>
                         <div className="user__name">{ user.name }</div>
                         <div className="user__email">Email: { user.email }</div>
                         <div>Location :{ user.location.name }</div>
@@ -54,7 +54,7 @@ export const UserProfile = () => {
                     </div>
                     {animal.userId ? 
                         <div className="profileCards__animal">
-                            <div><img className="user__image avatar" src={ animal.imageURL }></img></div>
+                            <div><img className="user__image avatar" src={ animal.imageURL } alt="Users dog"></img></div>
                             <div>Name: { animal.name }</div>
                             <div>Breed: { animal.breed }</div>
                             <div>Age: { animal.age }</div>
