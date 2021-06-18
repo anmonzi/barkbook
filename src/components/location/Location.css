@@ -72,3 +72,13 @@
 .go-back-btn {
   margin-top: 2rem;
 }
+
+.searchBar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.searchBar__title {
+  text-align: center;
+}
