@@ -29,7 +29,7 @@ export const LocationList = () => {
 
     return (
         <>
-            <h1 className="locations-title title">Search Locations</h1>
+            <h1 className="locations-title title">Search Davidson County Locations</h1>
                 <LocationSearch />
             <div className="locationsParent__flex">
                 <div className="locations">
