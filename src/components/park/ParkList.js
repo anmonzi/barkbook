@@ -14,10 +14,15 @@ export const ParkList = () => {
     }, [])
 
     useEffect(() => {
+        setLocationName("all")
+    }, [])
+
+    
+    useEffect(() => {
         locationName === "all" ? setFilteredParks(parks) : setFilteredParks(parks.filter(park => park.location.name === locationName))
     }, [locationName])
-
-   
+    
+    
 
     return (
         <>
