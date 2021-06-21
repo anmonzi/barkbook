@@ -15,7 +15,8 @@ import { LocationProvider } from "./location/LocationProvider"
 import { UserForm } from "./user/UserForm"
 import { UserProfile } from "./user/UserProfile"
 import { UserProvider } from "./user/UserProvider"
-
+import { ParkProvider } from "./park/ParkProvider"
+import { ParkList } from "./park/ParkList"
 
 
 export const ApplicationViews = () => {
@@ -85,6 +86,14 @@ export const ApplicationViews = () => {
                         <MessageList />
                     </Route>
             </DirectMessageProvider>
+
+            {/* Render Parks */}
+            <ParkProvider>
+                    <Route exact path="/parks">
+                        <ParkList />
+                    </Route>
+            </ParkProvider>
+            
         </>
     )
 }

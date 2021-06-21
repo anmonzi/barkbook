@@ -12,6 +12,9 @@ export const NavBar = (props) => {
                 <Link className="navbar__link" to="/profile">Temp Home Button</Link>
             </li>
             <li className="navbar__item">
+                <Link className="navbar__link hover" to="/parks">Find A Park</Link>
+            </li>
+            <li className="navbar__item">
                 <Link className="navbar__link hover" to="/locations">Find A Pal</Link>
             </li>
             <li className="navbar__item">
