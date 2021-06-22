@@ -23,7 +23,6 @@ export const UserForm = () => {
         const updateUser = { ...user }
         updateUser[event.target.name] = event.target.value
         setUser(updateUser)
-        console.log("Change noticed")
     }
 
 

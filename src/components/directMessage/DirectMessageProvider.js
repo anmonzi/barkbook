@@ -24,6 +24,23 @@ export const DirectMessageProvider = (props) => {
         .then(getMessages)
     }
 
+    const getMessageById = messageId => {
+        return fetch(`http://localhost:8088/directMessages/${messageId}?_expand=user`)
+        .then(res => res.json())
+    }
+
+
+    const updateMessage = message => {
+        return fetch(`http://localhost:8088/directMessages/${message.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(message)
+        })
+        .then(getMessages)
+    }
+
     const removeMessage = messageId => {
         return fetch(`http://localhost:8088/directMessages/${messageId}`, {
             method: "DELETE"
@@ -35,7 +52,7 @@ export const DirectMessageProvider = (props) => {
     return (
         <DirectMessageContext.Provider value= {
             {
-                messages, getMessages, removeMessage, addMessage
+                messages, getMessages, removeMessage, addMessage, getMessageById, updateMessage
             }
         }>
             {props.children}
