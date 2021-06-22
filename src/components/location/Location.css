@@ -30,6 +30,10 @@
   color: #6568F4;
 }
 
+.location__link:hover {
+  color: white;
+}
+
 
 .location:hover {
   background: linear-gradient(90deg, rgba(110, 94, 254) 0%, rgba(73, 63, 252) 80%);
@@ -54,12 +58,14 @@
 .detail__cardAnimal {
   width: 900px;
   height: 500px;
-  margin-left: 9rem;
+  margin-left: 8rem;
 }
 
 .detail__cardUser {
   width: 900px;
   height: 500px;
+  border-left: 2px rgb(181, 181, 181) solid;
+  padding-left: 8rem;
 }
 
 .button-message {
@@ -81,4 +87,5 @@
 
 .searchBar__title {
   text-align: center;
+  margin-top: 0;
 }

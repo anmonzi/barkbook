@@ -9,7 +9,7 @@ export const LocationSearch = () => {
     return (
         <div className="searchBar">
             <div>
-                <div className="searchBar__title">Search Locations:</div>
+                <h3 className="searchBar__title">Search Locations:</h3>
                 <input type="text"
                 className="input--wide"
                 onKeyUp={(event) => setSearchTerms(event.target.value.toLowerCase())}

@@ -24,9 +24,9 @@ export const LocationAnimalDetail = () => {
                         <div><b>Name:</b> { animal.name }</div>
                         <div><b>Breed:</b> { animal.breed }</div>
                         <div><b>Age:</b> { animal.age }</div>
-                        <div><b>Pet Gender:</b> {animal.animalGender.gender}</div>
-                        <div><b>Pet Size:</b> {animal.animalSize.size}</div>
-                        <div><b>Energy Level:</b> {animal.animalEnergyLevel.energyLevel}</div>
+                        <div><b>Pet Gender:</b> <mark>{animal.animalGender.gender}</mark></div>
+                        <div><b>Pet Size:</b> <mark>{animal.animalSize.size}</mark></div>
+                        <div><b>Energy Level:</b> <mark>{animal.animalEnergyLevel.energyLevel}</mark></div>
                         <br></br>
                         <div className="description">{ animal.description }</div>
                     </div>
