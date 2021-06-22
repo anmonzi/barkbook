@@ -5,7 +5,7 @@ import "./Park.css"
 
 export const ParkList = () => {
     const { parks, getParks } = useContext(ParkContext)
-    const [ locationName, setLocationName ] = useState("all")
+    const [ locationName, setLocationName ] = useState("")
     const [ filteredParks, setFilteredParks ] = useState([])
 
 
@@ -16,11 +16,15 @@ export const ParkList = () => {
     useEffect(() => {
         setLocationName("all")
     }, [])
-
     
     useEffect(() => {
-        locationName === "all" ? setFilteredParks(parks) : setFilteredParks(parks.filter(park => park.location.name === locationName))
-    }, [locationName])
+        if (locationName === "all") {
+            setFilteredParks(parks)
+        } else {
+            setFilteredParks(parks.filter(park => park.location.name === locationName))
+        }
+    }, [locationName, parks])
+    
     
     
 
