@@ -17,6 +17,8 @@ import { UserProfile } from "./user/UserProfile"
 import { UserProvider } from "./user/UserProvider"
 import { ParkProvider } from "./park/ParkProvider"
 import { ParkList } from "./park/ParkList"
+import { DirectMessage } from "./directMessage/DirectMessage"
+
 
 
 export const ApplicationViews = () => {
@@ -84,6 +86,10 @@ export const ApplicationViews = () => {
             <DirectMessageProvider>
                     <Route exact path="/messages">
                         <MessageList />
+                    </Route>
+
+                    <Route exact path="/messages/reply/:messageId(\d+)">
+                        <DirectMessage />
                     </Route>
             </DirectMessageProvider>
 
