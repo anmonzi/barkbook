@@ -69,11 +69,14 @@ export const UserProfile = () => {
                                 }}>Edit Profile</button>
                         </div>
                         : 
-                        <div>
-                            <button onClick={() => history.push("/profile/create-animal")}>
-                            Add Pet
-                            </button>
-                        </div>}
+                        <div className="profileCards__noAnimal">
+                            <div className="btn-flex">
+                                <button className="add-animal-btn" onClick={() => history.push("/profile/create-animal")}>
+                                Add Pet
+                                </button>
+                            </div>
+                        </div>
+                    }
                 </div>
             </div>
         </section>
