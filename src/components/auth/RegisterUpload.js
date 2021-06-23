@@ -1,15 +1,16 @@
-import React, { useRef, useContext, useEffect } from "react"
+import React, { useRef, useContext, useEffect, useState } from "react"
 import { LocationContext } from "../location/LocationProvider"
-import { ImageUpload } from "../photoUpload/PhotoUpload"
 import { useHistory } from "react-router-dom"
 import "./Login.css"
 
-export const Register = (props) => {
+export const RegisterUpload = (props) => {
     const { locations, getLocations } = useContext(LocationContext)
+    const [loading, setLoading] = useState(false)
+    const [image, setImage] = useState("")
 
     const name = useRef()
     const email = useRef()
-    const imageURL = useRef()
+    // const imageURL = useRef()
     const locationId = useRef()
     const description = useRef()
     const conflictDialog = useRef()
@@ -41,7 +42,7 @@ export const Register = (props) => {
                             name: name.current.value,
                             email: email.current.value,
                             locationId: parseInt(locationId.current.value),
-                            imageURL: imageURL.current.value,
+                            imageURL: image,
                             description: description.current.value
                         })
                     })
@@ -60,6 +61,27 @@ export const Register = (props) => {
         
     }
 
+
+    const uploadImage = async event => {
+        const files = event.target.files
+        const data = new FormData()
+        data.append("file", files[0])
+        data.append("upload_preset", "barkbookimages")
+        setLoading(true)
+        
+        const response = await fetch("https://api.cloudinary.com/v1_1/dv6jdeyfx/image/upload",
+        {
+            method: "POST",
+            body: data
+        })
+
+        const file = await response.json()
+        console.log(file)
+
+        setImage(file.secure_url)
+        setLoading(false)
+    }
+
     return (
         <main style={{ textAlign: "center" }}>
 
@@ -70,6 +92,25 @@ export const Register = (props) => {
 
             <form className="form--login" onSubmit={handleRegister}>
                 <h1 className="h3 mb-3 font-weight-normal">Please Register for barkbook</h1>
+                <div>
+                    <h3>Upload a Profile Image</h3>
+                        <input type="file" name="file" placeholder="Upload an Image"
+                        onChange={uploadImage} required />
+                        {
+                            loading ? 
+                            <h3>Loading...</h3>
+                            : 
+                            <img src={image} style={{
+                                objectFit: 'cover',
+                                borderRadius: '50%',
+                                width: '200px',
+                                maxHeight: '200px',
+                                boxShadow: '0px 0px 10px rgb(212, 212, 212)',
+                                backgroundPosition: 'top center',
+                                }}
+                            />
+                        }
+                </div>
                 <fieldset>
                     <label htmlFor="inputName"> Name </label>
                     <input ref={name} type="text" name="name" className="form-control" placeholder="Enter Full Name" required autoFocus />
@@ -91,11 +132,10 @@ export const Register = (props) => {
                         </select>
                     </div>
                 </fieldset>
-                <ImageUpload />
-                <fieldset>
+                {/* <fieldset>
                     <label htmlFor="inputImageUrl"> Upload a Profile Image </label>
                     <input ref={imageURL} type="text" name="image" className="form-control" placeholder="Please Enter A Profile Pic" required />
-                </fieldset>
+                </fieldset> */}
                 <fieldset>
                     <label htmlFor="inputDescription"> Tell Everyone A Little About You </label>
                     <textarea ref={description} type="text" name="description" className="form-control" placeholder="Enter A Brief Bio " cols={10} rows={10} required />

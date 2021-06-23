@@ -53,6 +53,7 @@ export const ParkList = () => {
                                     <h2 className="park__name">{ park.name }</h2>
                                     <h3><b>Location:</b> <u>{ park.location.name }</u></h3>
                                     <div><b>Address:</b> { park.address }</div>
+                                    <br></br>
                                     <div><b>About:</b> { park.description }</div>
                                 </div>
                             </div>

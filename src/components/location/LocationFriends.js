@@ -15,6 +15,7 @@ export const LocationFriends = () => {
     const [ locationAnimals, setLocationAnimals] = useState([])
     const [ location, setLocation ] = useState({ users: [] })
     const { locationId } = useParams()
+    const currentUser = parseInt(localStorage.getItem("barkbook_user"))
     const history = useHistory() //just returns a value
 
     useEffect(() => {
@@ -27,8 +28,9 @@ export const LocationFriends = () => {
 
     useEffect(() => {
         const found = users.filter(user => user.locationId === parseInt(locationId))
+        const foundUsers = found.filter(user => user.id !== currentUser)
         const foundAnimals = []
-        for(const user of found) {
+        for(const user of foundUsers) {
             const foundAnimal = animals.find(animal => animal.userId === user.id)
             if (foundAnimal !== undefined) {
                 foundAnimals.push(foundAnimal)

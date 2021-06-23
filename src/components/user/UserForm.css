@@ -4,10 +4,13 @@
     align-items: center;
 }
 
+.userForm__title {
+    text-align: center;
+}
+
 .user-form {
     display: block;
-    width: 50%;
-    /* height: calc(1.5em + .75rem + 2px); */
+    width: 30%;
     padding: .375rem .75rem;
     font-size: 1rem;
     font-weight: 400;
@@ -16,8 +19,16 @@
     background-color: #fff;
     background-clip: padding-box;
     border: 1px solid #ced4da;
-    border-radius: .25rem;
-    -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    
+    border-radius: 20px;
+    margin: 2rem 0;
+}
+
+.previous-img {
+    display: flex;
+    justify-content: center;
+    margin-left: 1rem;
+}
+
+.user-form-btns {
+    margin-bottom: 1rem;
 }

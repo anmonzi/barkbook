@@ -3,9 +3,10 @@ import { Route, Redirect } from "react-router-dom"
 import { ApplicationViews } from "./ApplicationViews"
 import { NavBar } from "./nav/NavBar"
 import { Login } from "./auth/Login"
-import { Register } from "./auth/Register"
+// import { Register } from "./auth/Register"
 import { LocationProvider } from "./location/LocationProvider"
 import "./BarkBook.css"
+import { RegisterUpload } from "./auth/RegisterUpload"
 
 
 
@@ -32,7 +33,7 @@ export const BarkBook = () => (
 
     <LocationProvider>
         <Route path="/register">
-            <Register />
+            <RegisterUpload />
         </Route>
     </LocationProvider>
   </>
