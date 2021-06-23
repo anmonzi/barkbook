@@ -15,6 +15,9 @@ export const AnimalForm = () => {
 
     const [animal, setAnimal] = useState({})
     const [isLoading, setIsLoading] = useState({})
+    const [loading, setLoading] = useState(false)
+    const [image, setImage] = useState("")
+    const [editModeImage, setEditModeImage] = useState("")
 
     const {animalId} = useParams()
     const history = useHistory()
@@ -28,15 +31,30 @@ export const AnimalForm = () => {
     }
 
     const handleSaveAnimal = () => {
-        if (animalId) {
-            // PUT - update
+        if (animalId && image === "") {
+            // PUT - update with original animal image
             updateAnimal({
                 id: animal.id,
                 name: animal.name,
                 userId: userId,
                 animalEnergyLevelId: parseInt(animal.animalEnergyLevelId),
                 animalSizeId: parseInt(animal.animalSizeId),
-                imageURL: animal.imageURL,
+                imageURL: editModeImage,
+                age: animal.age,
+                animalGenderId: parseInt(animal.animalGenderId),
+                breed: animal.breed,
+                description: animal.description
+            })
+            .then(() => history.push("/profile"))
+        } else if (animalId && image !== "") {
+            // PUT - update with new animal image
+            updateAnimal({
+                id: animal.id,
+                name: animal.name,
+                userId: userId,
+                animalEnergyLevelId: parseInt(animal.animalEnergyLevelId),
+                animalSizeId: parseInt(animal.animalSizeId),
+                imageURL: image,
                 age: animal.age,
                 animalGenderId: parseInt(animal.animalGenderId),
                 breed: animal.breed,
@@ -44,13 +62,13 @@ export const AnimalForm = () => {
             })
             .then(() => history.push("/profile"))
         } else {
-            // POST - add
+            // POST - add new animal with uploaded image
             addAnimal({
                 name: animal.name,
                 userId: userId,
                 animalEnergyLevelId: parseInt(animal.animalEnergyLevelId),
                 animalSizeId: parseInt(animal.animalSizeId),
-                imageURL: animal.imageURL,
+                imageURL: image,
                 age: animal.age,
                 animalGenderId: parseInt(animal.animalGenderId),
                 breed: animal.breed,
@@ -62,12 +80,34 @@ export const AnimalForm = () => {
 
 
 
+    const uploadImage = async event => {
+        const files = event.target.files
+        const data = new FormData()
+        data.append("file", files[0])
+        data.append("upload_preset", "barkbookimages")
+        setLoading(true)
+        
+        const response = await fetch("https://api.cloudinary.com/v1_1/dv6jdeyfx/image/upload",
+        {
+            method: "POST",
+            body: data
+        })
+
+        const file = await response.json()
+        console.log(file)
+
+        setImage(file.secure_url)
+        setLoading(false)
+    }
+
+
     useEffect(() => {
         getAnimalGenders()
         .then(getAnimalSizes).then(getAnimalEnergyLevels).then(() => {
             if (animalId) {
                 getAnimalById(animalId)
                 .then(animal => {
+                    setEditModeImage(animal.imageURL)
                     setAnimal(animal)
                     setIsLoading(false)
                 })
@@ -85,6 +125,49 @@ export const AnimalForm = () => {
             ? <><h2 className="animalForm__title">Update Pet</h2></>
             : <><h2 className="animalForm__title">New Pet</h2></>
             }
+            <div>
+            {editModeImage === ""
+            ? <><h3 className="animalForm__title">Add Dog Image</h3></>
+            : <><h3 className="animalForm__title">Update Dog Image</h3></>
+            }
+        
+                {image === "" 
+                ?
+                <> 
+                    <div className="previous-img">
+                        <img src={editModeImage}  alt="" className="img-upload" style={{
+                            objectFit: 'cover',
+                            borderRadius: '50%',
+                            width: '200px',
+                            maxHeight: '200px',
+                            boxShadow: '0px 0px 10px rgb(212, 212, 212)',
+                            backgroundPosition: 'top center',
+                        }}/>
+                    </div>
+                </>
+                :
+                <div></div>
+                }
+                
+                <div className="img-upload-container">
+                    <input type="file" name="file" placeholder="Upload an Image"
+                        onChange={uploadImage} className="img-upload" required />
+                        {
+                            loading ? 
+                            <h3>Loading...</h3> 
+                            : 
+                            <img src={image} style={{
+                                objectFit: 'cover',
+                                borderRadius: '50%',
+                                width: '200px',
+                                maxHeight: '200px',
+                                boxShadow: '0px 0px 10px rgb(212, 212, 212)',
+                                backgroundPosition: 'top center'
+                                }}
+                            />
+                        }
+                </div>
+            </div>
             <fieldset>
                 <div className="form-group">
                 <label htmlFor="animalName">Pet name: </label>
@@ -148,32 +231,36 @@ export const AnimalForm = () => {
                 </select>
                 </div>
             </fieldset>
-            <fieldset>
+            {/* <fieldset>
                 <div className="form-group">
                     <label htmlFor="inputImageUrl">Add Pet Image </label>
                     <input type="text" id="animalImage" name="imageURL" className="form-control" required value={animal.imageURL} onChange={handleControlledInputChange}/>
                 </div>
-            </fieldset>
+            </fieldset> */}
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="inputDescription"> Pet Description </label>
                     <textarea type="text" id="animalDescription" name="description" className="form-control" cols={10} rows={10} required value={animal.description} onChange={handleControlledInputChange}/>
                 </div>
             </fieldset>
-            <button className="btn btn-primary"
-                disabled={isLoading}
-                onClick={event => {
-                event.preventDefault() // Prevent browser from submitting the form and refreshing the page
-                handleSaveAnimal() // handle put or post functionality  ->  ternary statement below - if there's an animalId then load save animal text...else add animal text
-                }}>
-            {animalId ? <>Update Animal</> : <>Add Animal</>}</button>
-            {/* Ternary for delete button - if there's no animal.id don't show button */}
-            {animalId
-            ? <button className="btn btn-primary" onClick={() => {
-                removeAnimal(animalId)
-                history.push("/profile")
-            }}>Delete Pet</button>
-            : <></> }
+            <div className="animal-form-btns">
+                <button className="btn btn-primary"
+                    disabled={isLoading}
+                    onClick={event => {
+                    event.preventDefault() // Prevent browser from submitting the form and refreshing the page
+                    handleSaveAnimal() // handle put or post functionality  ->  ternary statement below - if there's an animalId then load save animal text...else add animal text
+                    }}>
+                {animalId ? <>Update Animal</> : <>Add Animal</>}
+                </button>
+                {/* Ternary for delete button - if there's no animal.id don't show button */}
+                {animalId
+                ? <button className="btn btn-primary" onClick={() => {
+                    removeAnimal(animalId)
+                    history.push("/profile")
+                }}>Delete Pet</button>
+                : <></>
+                }
+            </div>
             </form>
         </div>
       )
