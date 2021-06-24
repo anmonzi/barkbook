@@ -35,7 +35,7 @@ export const AnimalProfile = () => {
                 <>
                     {animal.userId
                     ? 
-                        <div className="profileCards__animal">
+                        <div className="profileCards__animal" key={animal.id}>
                             <div><img className="user__image avatar" src={ animal.imageURL } alt="Users dog"></img></div>
                             <div><b>Name:</b> { animal.name }</div>
                             <div><b>Breed:</b> { animal.breed }</div>

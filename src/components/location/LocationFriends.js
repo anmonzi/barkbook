@@ -27,19 +27,22 @@ export const LocationFriends = () => {
     }, [])
 
     useEffect(() => {
-        const found = users.filter(user => user.locationId === parseInt(locationId))
-        const foundUsers = found.filter(user => user.id !== currentUser)
-        const foundAnimals = []
-        for(const user of foundUsers) {
-            const foundAnimal = animals.find(animal => animal.userId === user.id)
-            if (foundAnimal !== undefined) {
-                foundAnimals.push(foundAnimal)
-            }
-        } 
-        setLocationAnimals(foundAnimals)
-    }, [users])
-    
+        const findAllUsers = users.filter(user => user.locationId === parseInt(locationId)) //grab all users for this location
+        const foundUsers = findAllUsers.filter(user => user.id !== currentUser) // remove current user from array
 
+        const foundAnimals = []
+        for (const user of foundUsers) {
+            animals.forEach(animal => {
+                if (animal.userId === user.id) {
+                    foundAnimals.push(animal)
+                }
+            })
+        }
+        
+        setLocationAnimals(foundAnimals)
+    }, [location])
+    
+    
     return (
         <>
             <h1 className="location__name title">{ location.name } Friends</h1>
