@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react"
 import { UserContext } from "./UserProvider"
-import { AnimalContext } from "../animal/AnimalProvider"
+import { AnimalProfile } from "../animal/AnimalProfile"
 import { useHistory } from 'react-router-dom'
 import "./UserProfile.css"
 
@@ -8,9 +8,7 @@ import "./UserProfile.css"
 
 export const UserProfile = () => {
     const { getUserById } = useContext(UserContext)
-    const { getAnimalByUserId } = useContext(AnimalContext)
     const [user, setUser] = useState({ location: {}, animals: []})
-    const [animal, setAnimal] = useState({ user: {}, animalEnergyLevel: {}, animalSize: {}, animalGender: {}})
     const history = useHistory()
     const userId = parseInt(localStorage.getItem("barkbook_user"))
     
@@ -18,18 +16,6 @@ export const UserProfile = () => {
     useEffect(() => {
         getUserById(userId).then(setUser) 
     }, [])
-
-    // Grab user dog if available
-    useEffect(() => {
-        getAnimalByUserId(userId).then((animal) => {
-            if (animal.length === 0) {
-                setAnimal({})
-            } else {
-            const animalObj = animal[0]
-            setAnimal(animalObj)
-            }
-        })
-    },[])
     
             
     return (
@@ -53,7 +39,8 @@ export const UserProfile = () => {
                                 history.push(`/profile/edit/${user.id}`)
                             }}>Edit Profile</button>
                     </div>
-                    {animal.userId ? 
+                    <AnimalProfile />
+                    {/* {animal.userId ? 
                         <div className="profileCards__animal">
                             <div><img className="user__image avatar" src={ animal.imageURL } alt="Users dog"></img></div>
                             <div><b>Name:</b> { animal.name }</div>
@@ -76,7 +63,7 @@ export const UserProfile = () => {
                                 </button>
                             </div>
                         </div>
-                    }
+                    } */}
                 </div>
             </div>
         </section>

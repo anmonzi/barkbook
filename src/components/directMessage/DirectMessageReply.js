@@ -5,7 +5,7 @@ import "./DirectMessage.css"
 
 
 export const DirectMessageReply = ({ userId }) => {
-    const { getMessages, updateMessage, addMessage } = useContext(DirectMessageContext)
+    const { getMessages, addMessage } = useContext(DirectMessageContext)
     const senderId = parseInt(localStorage.getItem("barkbook_user"))
     const history = useHistory()
     
