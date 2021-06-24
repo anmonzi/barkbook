@@ -75,3 +75,7 @@
     display: flex;
     align-items: center;
 }
+
+.add-animal-btn {
+    margin-bottom: 2rem;
+}
