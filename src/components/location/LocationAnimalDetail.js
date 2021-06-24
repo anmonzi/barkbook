@@ -16,7 +16,7 @@ export const LocationAnimalDetail = () => {
 
     return (
         <>
-            <h1 className="animalDetail-title title">Meet {animal.name}, and their Human.</h1>
+            <h1 className="animalDetail-title title">Meet {animal.name}, and their Hooman.</h1>
             <div className="parentCard-flex">
                 <div className="detail__card">
                     <div className="detail__cardAnimal">

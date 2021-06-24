@@ -16,7 +16,7 @@ export const AnimalProfile = () => {
     useEffect(() => {
         getAnimalByUserId(userId).then((animal) => {
             if (animal.length === 0) {
-                // setAnimals([{}])
+                setAnimals([{}])
             } else if (animal.length > 1) {
                 const animalArray = animal
                 setAnimals(animalArray)
@@ -60,9 +60,10 @@ export const AnimalProfile = () => {
                     }
                 </>
                 )
-            })}
+                })
+            }
 
-            {animals.length >= 1
+            {animals.length > 0
             ?
             <div className="profileCards__addAnimal">
                 <div className="btn-flex">

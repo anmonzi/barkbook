@@ -117,7 +117,7 @@ export const UserForm = () => {
                             objectFit: 'cover',
                             borderRadius: '50%',
                             width: '200px',
-                            maxHeight: '200px',
+                            height: '200px',
                             boxShadow: '0px 0px 10px rgb(212, 212, 212)',
                             backgroundPosition: 'top center',
                         }}/>
