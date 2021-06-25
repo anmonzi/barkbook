@@ -38,7 +38,7 @@ export const LocationFriends = () => {
                 }
             })
         }
-        console.log(foundAnimals)
+        
         setLocationAnimals(foundAnimals)
     }, [users])
     

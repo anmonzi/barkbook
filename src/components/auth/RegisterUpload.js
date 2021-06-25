@@ -76,7 +76,7 @@ export const RegisterUpload = (props) => {
         })
 
         const file = await response.json()
-        console.log(file)
+        
 
         setImage(file.secure_url)
         setLoading(false)

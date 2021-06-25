@@ -30,7 +30,7 @@ export const AnimalProfile = () => {
         })
     },[userId])
     
-    console.log(animals)
+    
     return (
         <div>
             {animals.map(animal => { 
