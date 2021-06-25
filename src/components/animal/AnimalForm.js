@@ -150,21 +150,13 @@ export const AnimalForm = () => {
                 }
                 
                 <div className="img-upload-container">
-                    <input type="file" name="file" placeholder="Upload an Image"
-                        onChange={uploadImage} className="img-upload" required />
+                    <input type="file" name="file" onChange={uploadImage} 
+                    className="img-upload" required />
                         {
                             loading ? 
                             <h3>Loading...</h3> 
                             : 
-                            <img src={image} style={{
-                                objectFit: 'cover',
-                                borderRadius: '50%',
-                                width: '200px',
-                                maxHeight: '200px',
-                                boxShadow: '0px 0px 10px rgb(212, 212, 212)',
-                                backgroundPosition: 'top center'
-                                }}
-                            />
+                            <img src={image} className={ `${image !== ""  ? "loading" : "hidden" }`}/>
                         }
                 </div>
             </div>

@@ -134,15 +134,7 @@ export const UserForm = () => {
                             loading ? 
                             <h3>Loading...</h3> 
                             : 
-                            <img src={image} style={{
-                                objectFit: 'cover',
-                                borderRadius: '50%',
-                                width: '200px',
-                                maxHeight: '200px',
-                                boxShadow: '0px 0px 10px rgb(212, 212, 212)',
-                                backgroundPosition: 'top center'
-                                }}
-                            />
+                            <img src={image} className={ `${image !== ""  ? "loading" : "hidden" }`}/>
                         }
                 </div>
             </div>
