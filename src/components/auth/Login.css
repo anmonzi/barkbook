@@ -66,3 +66,15 @@ fieldset {
     min-height: 5rem;
 }
 
+.loading {
+    object-fit: cover;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    box-shadow: 0px 0px 10px rgb(212, 212, 212);
+    background-position: top center;
+}
+
+.hidden {
+    display: none
+}

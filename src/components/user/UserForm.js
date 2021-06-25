@@ -32,7 +32,8 @@ export const UserForm = () => {
 
 
 
-    const handleClickSaveUser = () => {
+    const handleClickSaveUser = (event) => {
+        event.preventDefault()
         
         const locationId = parseInt(user.locationId)
         
@@ -101,11 +102,14 @@ export const UserForm = () => {
         })
     }, [])
 
+    const checkKeyDown = (event) => {
+        if (event.code === "Enter") event.preventDefault()
+    }
     
 
     return (
         <div className="form-flex">
-            <form className="user-form">
+            <form className="user-form" onKeyDown={(event) => checkKeyDown(event)}>
             <h2 className="userForm__title">Update User Profile</h2>
             <div>
                 <h3>Update Profile Image</h3>
@@ -130,11 +134,11 @@ export const UserForm = () => {
                 <div className="img-upload-container">
                     <input type="file" name="file" placeholder="Upload an Image"
                         onChange={uploadImage} className="img-upload" required />
-                        {
-                            loading ? 
-                            <h3>Loading...</h3> 
-                            : 
-                            <img src={image} className={ `${image !== ""  ? "loading" : "hidden" }`}/>
+                        {loading
+                        ? 
+                        <h3>Loading...</h3> 
+                        : 
+                        <img src={image} className={ `${image !== ""  ? "loading" : "hidden" }`}/>
                         }
                 </div>
             </div>
@@ -157,10 +161,6 @@ export const UserForm = () => {
                 </select>
                 </div>
             </fieldset>
-            {/* <fieldset>
-                <label htmlFor="inputImageUrl"> Update Profile Image </label>
-                <input type="text" id="userImage" name="image" className="form-control" required value={user.imageURL} onChange={handleInputChange}/>
-            </fieldset> */}
             <fieldset>
                 <label htmlFor="inputDescription"> Update Description </label>
                 <textarea type="text" id="userDescription" name="description" className="form-control" cols={10} rows={10} required value={user.description} onChange={handleInputChange}/>
@@ -168,10 +168,9 @@ export const UserForm = () => {
             <div className="user-form-btns">
                 <button className="btn btn-primary"
                     disabled={isLoading}
-                    onClick={event => {
-                        event.preventDefault()
-                        handleClickSaveUser()
-                    }}>
+                    onClick={
+                    handleClickSaveUser
+                    }>
                     Save User Profile
                     </button>
                 <button className="btn go-back-btn" onClick={() => {
