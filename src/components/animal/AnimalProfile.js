@@ -8,26 +8,29 @@ import "../user/UserProfile.css"
 export const AnimalProfile = () => {
     const { getAnimalByUserId } = useContext(AnimalContext)
     const [animals, setAnimals] = useState([{ user: {}, animalEnergyLevel: {}, animalSize: {}, animalGender: {} }])
+    const [hasAnimal, setHasAnimal] = useState(false)
     const history = useHistory()
     const userId = parseInt(localStorage.getItem("barkbook_user"))
     
 
     // Grab user dog if available
     useEffect(() => {
-        getAnimalByUserId(userId).then((animal) => {
-            if (animal.length === 0) {
-                setAnimals([{}])
-            } else if (animal.length > 1) {
-                const animalArray = animal
+        getAnimalByUserId(userId).then((animalArray) => {
+            if (animalArray.length === 1) {
+                setHasAnimal(true)
                 setAnimals(animalArray)
+            } else if (animalArray.length > 1) {
+                setHasAnimal(true)
+                const newAnimalArray = animalArray
+                setAnimals(newAnimalArray)
             } else {
-            const animalObj = animal
+            const animalObj = animalArray
             setAnimals(animalObj)
             }
         })
     },[userId])
     
-    
+    console.log(animals)
     return (
         <div>
             {animals.map(animal => { 
@@ -50,20 +53,14 @@ export const AnimalProfile = () => {
                                 }}>Edit Profile</button>
                         </div>
                     :
-                        <div className="profileCards__noAnimal">
-                            <div className="btn-flex">
-                                <button className="add-animal-btn" onClick={() => history.push("/profile/create-animal")}>
-                                    Add Pet
-                                </button>
-                            </div>
-                        </div>
+                        <div></div>
                     }
                 </>
                 )
                 })
             }
 
-            {animals.length > 0
+            {hasAnimal
             ?
             <div className="profileCards__addAnimal">
                 <div className="btn-flex">
@@ -73,7 +70,13 @@ export const AnimalProfile = () => {
                 </div>
             </div>
             :
-            <div></div>
+            <div className="profileCards__noAnimal">
+                <div className="btn-flex">
+                    <button className="add-animal-btn" onClick={() => history.push("/profile/create-animal")}>
+                        Add Pet
+                    </button>
+                </div>
+            </div>
             }
         </div>
     )

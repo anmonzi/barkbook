@@ -118,9 +118,14 @@ export const AnimalForm = () => {
     }, [])
 
 
+    const checkKeyDown = (event) => {
+        if (event.code === "Enter") event.preventDefault()
+    }
+
+
     return (
         <div className="form-flex">
-            <form className="animal-form">
+            <form className="animal-form" onKeyDown={(event) => checkKeyDown(event)}>
             {animalId
             ? <><h2 className="animalForm__title">Update Pet</h2></>
             : <><h2 className="animalForm__title">New Pet</h2></>
@@ -131,34 +136,27 @@ export const AnimalForm = () => {
             : <><h3 className="animalForm__title">Update Dog Image</h3></>
             }
         
-                {image === "" 
-                ?
-                <> 
-                    <div className="previous-img">
-                        <img src={editModeImage}  alt="" className="img-upload" style={{
-                            objectFit: 'cover',
-                            borderRadius: '50%',
-                            width: '200px',
-                            height: '200px',
-                            boxShadow: '0px 0px 10px rgb(212, 212, 212)',
-                            backgroundPosition: 'top center',
-                        }}/>
-                    </div>
-                </>
-                :
-                <div></div>
-                }
-                
-                <div className="img-upload-container">
-                    <input type="file" name="file" onChange={uploadImage} 
-                    className="img-upload" required />
-                        {
-                            loading ? 
-                            <h3>Loading...</h3> 
-                            : 
-                            <img src={image} className={ `${image !== ""  ? "loading" : "hidden" }`}/>
-                        }
+            {image === "" 
+            ?
+            <> 
+                <div className="previous-img">
+                    <img src={editModeImage}  alt="" className={ `${editModeImage !== ""  ? "loading" : "hidden" }`}/>
                 </div>
+            </>
+            :
+            <div></div>
+            }
+                
+            <div className="img-upload-container">
+                <input type="file" name="file" onChange={uploadImage} 
+                className="img-upload" required />
+                    {loading
+                    ? 
+                    <h3>Loading...</h3> 
+                    : 
+                    <img src={image} className={ `${image !== ""  ? "loading" : "hidden" }`}/>
+                    }
+            </div>
             </div>
             <fieldset>
                 <div className="form-group">
@@ -223,12 +221,6 @@ export const AnimalForm = () => {
                 </select>
                 </div>
             </fieldset>
-            {/* <fieldset>
-                <div className="form-group">
-                    <label htmlFor="inputImageUrl">Add Pet Image </label>
-                    <input type="text" id="animalImage" name="imageURL" className="form-control" required value={animal.imageURL} onChange={handleControlledInputChange}/>
-                </div>
-            </fieldset> */}
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="inputDescription"> Pet Description </label>

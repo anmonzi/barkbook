@@ -82,6 +82,11 @@ export const RegisterUpload = (props) => {
         setLoading(false)
     }
 
+    const checkKeyDown = (event) => {
+        if (event.code === "Enter") event.preventDefault()
+    }
+
+
     return (
         <main style={{ textAlign: "center" }}>
 
@@ -90,26 +95,18 @@ export const RegisterUpload = (props) => {
                 <button className="button--close" onClick={e => conflictDialog.current.close()}>Close</button>
             </dialog>
 
-            <form className="form--login" onSubmit={handleRegister}>
+            <form className="form--login" onSubmit={handleRegister} onKeyDown={(event) => checkKeyDown(event)}>
                 <h1 className="h3 mb-3 font-weight-normal">Please Register for barkbook</h1>
                 <div>
                     <h3>Upload a Profile Image</h3>
                         <input type="file" name="file" placeholder="Upload an Image"
                         onChange={uploadImage} required />
-                        {
-                            loading ? 
-                            <h3>Loading...</h3>
-                            : 
-                            <img src={image} style={{
-                                objectFit: 'cover',
-                                borderRadius: '50%',
-                                width: '200px',
-                                maxHeight: '200px',
-                                boxShadow: '0px 0px 10px rgb(212, 212, 212)',
-                                backgroundPosition: 'top center',
-                                }}
-                            />
-                        }
+                        {loading
+                        ? 
+                        <h3>Loading...</h3> 
+                        : 
+                        <img src={image} className={ `${image !== ""  ? "loading" : "hidden" }`}/>
+                    }
                 </div>
                 <fieldset>
                     <label htmlFor="inputName"> Name </label>
@@ -132,10 +129,6 @@ export const RegisterUpload = (props) => {
                         </select>
                     </div>
                 </fieldset>
-                {/* <fieldset>
-                    <label htmlFor="inputImageUrl"> Upload a Profile Image </label>
-                    <input ref={imageURL} type="text" name="image" className="form-control" placeholder="Please Enter A Profile Pic" required />
-                </fieldset> */}
                 <fieldset>
                     <label htmlFor="inputDescription"> Tell Everyone A Little About You </label>
                     <textarea ref={description} type="text" name="description" className="form-control" placeholder="Enter A Brief Bio " cols={10} rows={10} required />
