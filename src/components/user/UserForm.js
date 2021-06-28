@@ -173,7 +173,7 @@ export const UserForm = () => {
                     }>
                     Save User Profile
                     </button>
-                <button className="btn go-back-btn" onClick={() => {
+                <button className="btn btn-primary go-back-btn" onClick={() => {
                     history.push("/profile")
                     }}>Go Back
                 </button>
