@@ -75,7 +75,7 @@ export const DirectMessageForm = () => {
                     <textarea type="text" id="messageBody" name="message" className="form-control" cols={10} rows={10} required value={message.message} onChange={handleInputChange}/>
                 </fieldset>
                 <div className="btn-flex">
-                    <button className="btn btn-send" 
+                    <button className="btn btn-send btn-primary" 
                     onClick={handleClickSaveMessage}>
                         Send Message
                     </button>

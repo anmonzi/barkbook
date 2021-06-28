@@ -20,7 +20,7 @@ export const LocationAnimalDetail = () => {
             <div className="parentCard-flex">
                 <div className="detail__card">
                     <div className="detail__cardAnimal">
-                        <div><img className="user__image avatar" src={ animal.imageURL } alt="Users dog"></img></div>
+                        <div><img className="user__image location-avatar" src={ animal.imageURL } alt="Users dog"></img></div>
                         <div><b>Name:</b> { animal.name }</div>
                         <div><b>Breed:</b> { animal.breed }</div>
                         <div><b>Age:</b> { animal.age }</div>
@@ -31,7 +31,7 @@ export const LocationAnimalDetail = () => {
                         <div className="description">{ animal.description }</div>
                     </div>
                     <div className="detail__cardUser">
-                        <div className="detail__avatar"><img className="user__image avatar" src={animal.user.imageURL} alt="Users headshot"></img></div>
+                        <div className="detail__avatar"><img className="user__image location-avatar" src={animal.user.imageURL} alt="Users headshot"></img></div>
                         <div className="user__name"><b>{ animal.user.name }</b></div>
                         <br></br>
                         <div className="description">{ animal.user.description }</div>
@@ -39,7 +39,7 @@ export const LocationAnimalDetail = () => {
                 </div>
             </div>
             <div className="button-message">
-                <button className="btn btn-message" onClick={() =>
+                <button className="btn btn-message btn-primary" onClick={() =>
                     history.push(`/locations/message/${animal.user.id}`)
                 }>Send Message</button>
             </div>

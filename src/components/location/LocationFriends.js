@@ -55,7 +55,7 @@ export const LocationFriends = () => {
                     </div>
             </section>
             <div className="btn-flex">
-                <button className="btn go-back-btn" onClick={() => {
+                <button className="btn go-back-btn btn-primary" onClick={() => {
                     history.push("/locations")
                 }}>Go Back</button>
             </div>

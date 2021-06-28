@@ -61,11 +61,11 @@ export const MessageList = () => {
                                     
                                     <div className="message__detail"><b>Message:</b> { message.message } </div>
                                     <div className="btn-delete-flex">
-                                        <button className="btn btn-reply" onClick={() => {
+                                        <button className="btn-message" onClick={() => {
                                             history.push(`/messages/reply/${message.id}`)
                                             setMessageToRead(message)
                                         }}>Reply to Message</button>
-                                        <button className="btn btn-delete" onClick={() => {
+                                        <button className="btn-message" onClick={() => {
                                             removeMessage(message.id)
                                         }}>Delete Message</button>
                                     </div>

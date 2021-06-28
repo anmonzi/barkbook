@@ -31,3 +31,20 @@ strong {
 address {
   margin: 0 0 1.5em;
 }
+
+.btn-primary {
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 18px;
+  border: none;
+  background: linear-gradient(175deg, rgb(242, 242, 242) 30%,rgb(193, 193, 193) 125%);
+}
+
+.btn-primary:hover {
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 18px;
+  border: none;
+  background: linear-gradient(175deg, rgb(110, 94, 254) 0%, rgba(73, 63, 252) 100%);
+  color: white;
+}
