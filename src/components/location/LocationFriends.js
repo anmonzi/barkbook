@@ -2,9 +2,11 @@ import React, { useContext, useEffect, useState } from "react"
 import { LocationContext } from "./LocationProvider"
 import { AnimalContext } from "../animal/AnimalProvider"
 import { UserContext } from "../user/UserProvider"
-import "./Location.css"
 import { useParams, useHistory } from 'react-router-dom'
 import { AnimalCard } from "./LocationAnimalCards"
+import { FooterSearch } from "./LocationFooterFilter"
+import "./Location.css"
+
 
 
 
@@ -59,6 +61,7 @@ export const LocationFriends = () => {
                     history.push("/locations")
                 }}>Go Back</button>
             </div>
+            <FooterSearch />
         </>
     )
 }
