@@ -4,7 +4,9 @@ import { AnimalContext } from "../animal/AnimalProvider"
 import { UserContext } from "../user/UserProvider"
 import { useParams, useHistory } from 'react-router-dom'
 import { AnimalCard } from "./LocationAnimalCards"
-import { FooterSearch } from "./LocationFooterFilter"
+import { AnimalFilter } from "./LocationAnimalFilter"
+import { AnimalEnergyLevelContext } from "../animalEnergyLevel/AnimalEnergyLevelProvider"
+import { AnimalSizeContext } from "../animalSize/AnimalSizeProvider"
 import "./Location.css"
 
 
@@ -14,19 +16,28 @@ export const LocationFriends = () => {
     const { getLocationById } = useContext(LocationContext)
     const { animals, getAnimals } = useContext(AnimalContext)
     const { users, getUsers } = useContext(UserContext)
+    const { filteredValue, setFilteredValue } = useContext(AnimalEnergyLevelContext)
+    const { filteredSizeValue, setFilteredSizeValue } = useContext(AnimalSizeContext)
+
     const [ locationAnimals, setLocationAnimals] = useState([])
     const [ location, setLocation ] = useState({ users: [] })
+    const [filteredAnimals, setFilteredAnimals] = useState([])
+
+
     const { locationId } = useParams()
     const currentUser = parseInt(localStorage.getItem("barkbook_user"))
     const history = useHistory() //just returns a value
+
 
     useEffect(() => {
         getLocationById(locationId).then(setLocation)
     }, [locationId])
 
+
     useEffect(() => {
         getAnimals().then(getUsers)
     }, [])
+
 
     useEffect(() => {
         const findAllUsers = users.filter(user => user.locationId === parseInt(locationId)) //grab all users for this location
@@ -43,15 +54,33 @@ export const LocationFriends = () => {
         
         setLocationAnimals(foundAnimals)
     }, [users])
+
+
+    useEffect(() => {
+        if (filteredValue !== 0 || filteredSizeValue !== 0) {
+            const search = locationAnimals.filter(animal => animal.animalEnergyLevelId === filteredValue || animal.animalSizeId === filteredSizeValue)
+            setFilteredAnimals(search)
+        } else {
+            setFilteredAnimals(locationAnimals)
+        }
+    }, [filteredValue, locationAnimals])
+
+
+
+    useEffect(() => {
+        setFilteredValue(0)
+        setFilteredSizeValue(0)
+    }, [])
     
     
     return (
         <>
             <h1 className="location__name title">{ location.name } Friends</h1>
+            <AnimalFilter />
             <section className="dog__cards">  
                            
                     <div className="dog__card">
-                        {locationAnimals.map(animal =>
+                        {filteredAnimals.map(animal =>
                             <AnimalCard key={animal.id} animalObj={animal} />
                             )}
                     </div>
@@ -61,7 +90,6 @@ export const LocationFriends = () => {
                     history.push("/locations")
                 }}>Go Back</button>
             </div>
-            <FooterSearch />
         </>
     )
 }

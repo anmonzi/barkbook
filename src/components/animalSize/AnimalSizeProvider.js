@@ -5,6 +5,7 @@ export const AnimalSizeContext = createContext()
 
 export const AnimalSizeProvider = (props) => {
     const [animalSizes, setAnimalSizes] = useState([])
+    const [filteredSizeValue, setFilteredSizeValue] = useState(0)
 
     const getAnimalSizes = () => {
         return fetch("http://localhost:8088/animalSizes")
@@ -15,7 +16,8 @@ export const AnimalSizeProvider = (props) => {
     return (
         <AnimalSizeContext.Provider value= {
             {
-                animalSizes, getAnimalSizes
+                animalSizes, getAnimalSizes,
+                filteredSizeValue, setFilteredSizeValue
             }
         }>
             {props.children}
