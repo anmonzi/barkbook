@@ -107,7 +107,8 @@
 }
 
 .filter-select {
-  margin: 2rem;
+  margin: 1rem 2rem;
+  text-align: center;
 }
 
 .filter-form-control {

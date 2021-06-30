@@ -57,13 +57,16 @@ export const LocationFriends = () => {
 
 
     useEffect(() => {
-        if (filteredValue !== 0 || filteredSizeValue !== 0) {
-            const search = locationAnimals.filter(animal => animal.animalEnergyLevelId === filteredValue || animal.animalSizeId === filteredSizeValue)
-            setFilteredAnimals(search)
+        if (filteredValue !== 0 && filteredSizeValue !== 0) {
+            const andSearch = locationAnimals.filter(animal => animal.animalEnergyLevelId === filteredValue && animal.animalSizeId === filteredSizeValue)
+            setFilteredAnimals(andSearch)
+        } else if (filteredValue !== 0 || filteredSizeValue !== 0) {
+            const orSearch = locationAnimals.filter(animal => animal.animalEnergyLevelId === filteredValue || animal.animalSizeId === filteredSizeValue)
+            setFilteredAnimals(orSearch)
         } else {
             setFilteredAnimals(locationAnimals)
         }
-    }, [filteredValue, locationAnimals])
+    }, [filteredValue, filteredSizeValue, locationAnimals])
 
 
 
