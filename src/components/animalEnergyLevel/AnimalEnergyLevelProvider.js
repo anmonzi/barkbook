@@ -5,6 +5,7 @@ export const AnimalEnergyLevelContext = createContext()
 
 export const AnimalEnergyLevelProvider = (props) => {
     const [animalEnergyLevels, setAnimalEnergyLevels] = useState([])
+    const [filteredValue, setFilteredValue] = useState(0)
 
     const getAnimalEnergyLevels = () => {
         return fetch("http://localhost:8088/animalEnergyLevels")
@@ -17,7 +18,8 @@ export const AnimalEnergyLevelProvider = (props) => {
     return (
         <AnimalEnergyLevelContext.Provider value= {
             {
-                animalEnergyLevels, getAnimalEnergyLevels
+                animalEnergyLevels, getAnimalEnergyLevels,
+                filteredValue, setFilteredValue
             }
         }>
             {props.children}

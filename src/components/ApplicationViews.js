@@ -62,6 +62,8 @@ export const ApplicationViews = () => {
                 <UserProvider>
                     <AnimalProvider>
                         <DirectMessageProvider>
+                            <AnimalEnergyLevelProvider>
+                                <AnimalSizeProvider>
                             <Route exact path="/locations">
                                 <LocationList />
                             </Route>
@@ -77,6 +79,8 @@ export const ApplicationViews = () => {
                             <Route path="/locations/message/:userId(\d+)">
                                 <DirectMessageForm />
                             </Route>
+                                </AnimalSizeProvider>
+                            </AnimalEnergyLevelProvider>
                         </DirectMessageProvider>
                     </AnimalProvider>
                 </UserProvider>
