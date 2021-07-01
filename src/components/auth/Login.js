@@ -1,6 +1,7 @@
 import React, { useRef } from "react"
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom"
+import barkbook from "../nav/barkbook.png"
 import "./Login.css"
 
 
@@ -38,7 +39,10 @@ export const Login = (props) => {
 
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>welcome to barkbook</h1>
+                    <div className="login-logo--flex">
+                        <h1 className="login-welcome">welcome to</h1>
+                        <img src={barkbook} alt="barkbook logo" className="barkbook__logo__welcome"/>
+                    </div>
                     <h2>Please sign in</h2>
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>
@@ -49,7 +53,7 @@ export const Login = (props) => {
                             required autoFocus />
                     </fieldset>
                     <fieldset>
-                        <button type="submit">
+                        <button className="btn btn-primary" type="submit">
                             Sign in
                         </button>
                     </fieldset>
