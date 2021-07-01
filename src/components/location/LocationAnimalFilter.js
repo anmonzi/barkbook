@@ -13,9 +13,15 @@ export const AnimalFilter = () => {
         getAnimalEnergyLevels().then(getAnimalSizes)
     }, [])
 
+    
+    const handleResetValues = () => {
+        setFilteredSizeValue(0)
+        setFilteredValue(0)
+    }
+
 
     return (
-        <footer className="footerSearchBar">
+        <section className="filter-button__flex">
             <div className="filter-select">
                 <label htmlFor="selectEnergyLevel">Filter by Energy Level</label>
                     <select name="energyLevel" id="energyLevel" className="filter-form-control"
@@ -46,6 +52,9 @@ export const AnimalFilter = () => {
                         ))}
                     </select>
                 </div>
-        </footer>
+                <button className="btn go-back-btn btn-primary" onClick={() => {
+                    handleResetValues()
+                    }}>Reset</button>
+        </section>
     )
 }
