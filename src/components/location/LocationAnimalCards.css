@@ -38,7 +38,7 @@
 .animalCard__link:hover {
     text-decoration: none;
     color: goldenrod;
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .dog__card {
