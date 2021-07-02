@@ -9,6 +9,15 @@ fieldset {
     border: 0;
 }
 
+.link--register {
+    color: white;
+    text-decoration: none;
+}
+
+.link--register:hover {
+    color: #3acbf7;
+}
+
 .form--login {
     display: inline-block;
     margin: 0 auto;
@@ -44,6 +53,32 @@ fieldset {
 
 .container--login {
     text-align: center;
+    background: linear-gradient(143deg, rgb(110, 94, 254) 30%, rgba(73, 63, 252) 60%);
+    height: 75rem;
+    color: white;
+}
+
+.login-logo--flex {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login-welcome {
+    margin-top: 6rem;
+    margin-bottom: 0;
+}
+
+.login-photo-flex {
+    display: flex;
+}
+
+.login-photo {
+    max-width: 12rem;
+}
+
+.barkbook__logo__welcome {
+    max-width: 35rem;
 }
 
 .form--login {
@@ -51,9 +86,12 @@ fieldset {
     z-index: 1;
     min-height: 25rem;
     /* min-width: 45rem; */
-    background-color: hsla(0,0%,100%,0.40);
-    background-blend-mode: overlay;
-    background-repeat: no-repeat;
+}
+
+.form-btns {
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
 }
 
 .button--close {
@@ -77,4 +115,21 @@ fieldset {
 
 .hidden {
     display: none
+}
+
+.btn-login {
+    margin: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 18px;
+    border: none;
+    background: linear-gradient(175deg, rgb(242, 242, 242) 30%,rgb(193, 193, 193) 125%);
+}
+  
+.btn-login:hover {
+    margin: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 18px;
+    border: none;
+    background: #3acbf7;
+    color: white;
 }

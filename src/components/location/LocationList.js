@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react"
 import { LocationContext } from "./LocationProvider"
 import { LocationSearch } from "./LocationSearch"
+import { FriendsWaiting } from "./LocationFriendsWaiting"
 import { Link } from 'react-router-dom'
 import "./Location.css"
 
@@ -29,7 +30,7 @@ export const LocationList = () => {
 
     return (
         <>
-            <h1 className="locations-title title">Search Davidson County Locations</h1>
+            <h1 className="locations-title title">Locations in Davidson County</h1>
                 <LocationSearch />
             <div className="locationsParent__flex">
                 <div className="locations">
@@ -39,7 +40,7 @@ export const LocationList = () => {
                                 <Link className="location__link" to={`/locations/friends/${location.id}`}>
                                     <div className="location__card">
                                         <h3 className="location__name">{ location.name }</h3>
-                                         {location.users.length} Friends Waiting
+                                         <FriendsWaiting locationObj={ location }/>
                                     </div>
                                 </Link>
                         </div>
