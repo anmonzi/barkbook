@@ -162,7 +162,7 @@ export const AnimalForm = () => {
                 <div className="form-group">
                 <label htmlFor="animalName">Pet name: </label>
                 <input type="text" id="animalName" name="name" required autoFocus className="form-control"
-                placeholder="Pet name"
+                placeholder="Fido"
                 onChange={handleControlledInputChange}
                 defaultValue={animal.name}/>
                 </div>

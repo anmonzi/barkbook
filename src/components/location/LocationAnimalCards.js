@@ -15,7 +15,7 @@ export const AnimalCard = ({ animalObj }) => {
                 <div className="animal__info">
                     <div className="animal__name"><b>Name:</b> { animalObj.name } </div>
                     <div className="animal__energy"><b>Energy Level:</b> { animalObj.animalEnergyLevel.energyLevel } </div>
-                    <div className="animal__size"><b>Size:</b> {animalObj.animalSize.size} </div>
+                    <div className="animal__size"><b>Size:</b> {animalObj.animalSize.size}</div>
                 </div>
             </div>
         </Link>

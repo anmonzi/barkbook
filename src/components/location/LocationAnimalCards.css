@@ -27,6 +27,7 @@
 .animalCard__link {
     text-decoration: none;
     color: #404040;
+    transition: transform .5s;
 }
 
 .animalCard__link:active {
@@ -37,6 +38,7 @@
 .animalCard__link:hover {
     text-decoration: none;
     color: goldenrod;
+    transform: scale(1.1);
 }
 
 .dog__card {
