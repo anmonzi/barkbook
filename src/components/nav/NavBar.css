@@ -31,7 +31,7 @@
     color: #fff;
     text-decoration: none;
     font-weight: 800;
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     padding: .6rem;
 }
 
@@ -61,7 +61,7 @@
 
 .mail__icon {
     max-width: 2.5rem;
-    margin-right: 5rem;
+    margin-right: 3rem;
     transition: transform .5s;
 }
 
@@ -73,6 +73,7 @@
     padding: 0.5rem 1rem;
     border-radius: 18px;
     background-color: #3acbf7;
+    margin-right: 2rem;
 }
 
 .logout__button:hover {
