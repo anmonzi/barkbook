@@ -1,6 +1,7 @@
 import React, { useRef, useContext, useEffect, useState } from "react"
 import { LocationContext } from "../location/LocationProvider"
 import { useHistory } from "react-router-dom"
+import barkbook from "../nav/barkbook.png"
 import "./Login.css"
 
 export const RegisterUpload = (props) => {
@@ -96,7 +97,10 @@ export const RegisterUpload = (props) => {
             </dialog>
 
             <form className="form--login" onSubmit={handleRegister} onKeyDown={(event) => checkKeyDown(event)}>
-                <h1 className="h3 mb-3 font-weight-normal">Please Register for barkbook</h1>
+            <div className="login-logo--flex">
+                <h1 className="h3 mb-3 font-weight-normal login-welcome">register for</h1>
+                <img src={barkbook} alt="barkbook logo" className="barkbook__logo__welcome"/>
+            </div>
                 <div>
                     <h3>Upload a Profile Image</h3>
                         <input type="file" name="file" placeholder="Upload an Image"
@@ -133,14 +137,12 @@ export const RegisterUpload = (props) => {
                     <label htmlFor="inputDescription"> Tell Everyone A Little About You </label>
                     <textarea ref={description} type="text" name="description" className="form-control" placeholder="Enter A Brief Bio " cols={10} rows={10} required />
                 </fieldset>
-                <fieldset>
-                    <button type="submit"> Create Account </button>
-                </fieldset>
-                <fieldset>
-                <button className="btn go-back-btn" onClick={() => {
-                    history.push("/login")
-                    }}>Go Back</button>
-                </fieldset>
+                <div className="form-btns">
+                    <button type="submit" className="btn btn-login"> Create Account </button>
+                    <button className="btn btn-login" onClick={() => {
+                        history.push("/login")
+                        }}>Go Back</button>
+                </div>
             </form>
         </main>
     )

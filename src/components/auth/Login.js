@@ -2,6 +2,7 @@ import React, { useRef } from "react"
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom"
 import barkbook from "../nav/barkbook.png"
+import login from "./login.png"
 import "./Login.css"
 
 
@@ -31,38 +32,43 @@ export const Login = (props) => {
     }
 
     return (
-        <main className="container--login">
-            <dialog className="dialog dialog--auth" ref={existDialog}>
-                <div>User does not exist</div>
-                <button className="button--close" onClick={e => existDialog.current.close()}>Close</button>
-            </dialog>
+        <>
+            <main className="container--login">
+                <dialog className="dialog dialog--auth" ref={existDialog}>
+                    <div>User does not exist</div>
+                    <button className="button--close" onClick={e => existDialog.current.close()}>Close</button>
+                </dialog>
 
-            <section>
-                <form className="form--login" onSubmit={handleLogin}>
-                    <div className="login-logo--flex">
-                        <h1 className="login-welcome">welcome to</h1>
-                        <img src={barkbook} alt="barkbook logo" className="barkbook__logo__welcome"/>
-                    </div>
-                    <h2>Please sign in</h2>
-                    <fieldset>
-                        <label htmlFor="inputEmail"> Email address </label>
-                        <input ref={email} type="email"
-                            id="email"
-                            className="form-control"
-                            placeholder="Email address"
-                            required autoFocus />
-                    </fieldset>
-                    <fieldset>
-                        <button className="btn btn-primary" type="submit">
-                            Sign in
-                        </button>
-                    </fieldset>
-                </form>
-            </section>
-            <section className="link--register">
-                <Link to="/register">Not a member yet?</Link>
-            </section>
-        </main>
+                <section>
+                    <form className="form--login" onSubmit={handleLogin}>
+                        <div className="login-logo--flex">
+                            <h1 className="login-welcome">welcome to</h1>
+                            <img src={barkbook} alt="barkbook logo" className="barkbook__logo__welcome"/>
+                            <h2>Please sign in</h2>
+                            <fieldset>
+                                <label htmlFor="inputEmail"> Email address </label>
+                                <input ref={email} type="email"
+                                    id="email"
+                                    className="form-control"
+                                    placeholder="Email address"
+                                    required autoFocus />
+                            </fieldset>
+            {/* <div className="login-photo-flex">
+                <img src={login} alt="shepard looking at logo" className="login-photo"/>
+            </div> */}
+                            <fieldset>
+                                <button className="btn btn-login" type="submit">
+                                    Sign in
+                                </button>
+                            </fieldset>
+                        </div>
+                    </form>
+                </section>
+                <section>
+                    <Link to="/register" className="link--register">Not a member yet?</Link>
+                </section>
+            </main>
+        </>
     )
 }
 
