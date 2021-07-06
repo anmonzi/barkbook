@@ -59,7 +59,7 @@ export const MessageList = () => {
                                         </div>
                                     </h3>
                                     
-                                    <div className="message__detail"><b>Message:</b> { message.message } </div>
+                                    <div className="message__detail"> { message.message } </div>
                                     <div className="btn-delete-flex">
                                         <button className="btn-message" onClick={() => {
                                             history.push(`/messages/reply/${message.id}`)

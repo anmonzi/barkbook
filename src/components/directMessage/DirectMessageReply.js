@@ -28,7 +28,7 @@ export const DirectMessageReply = ({ userId }) => {
         event.preventDefault() //Prevents the browser from submitting the form
     
         if (message.subject === "" || message.message === "") {
-          window.alert("Please select a location and a customer")
+          window.alert("Please create a message")
         } else {
           //Invoke addMessage passing the new message object as an argument
           //Once complete, change the url and display the user profile
