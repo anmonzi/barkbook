@@ -25,8 +25,10 @@ git clone git@github.com:anmonzi/barkbook.git
 cd barkbook
 ```
 2. Access the data.
-  Link here
-  
+
+ [Click here](https://github.com/anmonzi/barkbook-api)
+
+
 3. Launch the client.
 ```
  npm install
