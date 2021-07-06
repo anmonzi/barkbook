@@ -55,7 +55,7 @@ export const DirectMessageForm = () => {
             date: Date.now()
           }
           addMessage(newMessage)
-            .then(() => history.push("/locations"))
+            .then(() => history.push(`/locations/friends/${user.locationId}`))
         }
       }
 
