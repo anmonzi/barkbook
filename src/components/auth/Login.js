@@ -2,7 +2,6 @@ import React, { useRef } from "react"
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom"
 import barkbook from "../nav/barkbook.png"
-import login from "./login.png"
 import "./Login.css"
 
 

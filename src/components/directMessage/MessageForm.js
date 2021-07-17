@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext, useEffect, useState, useRef } from "react"
 import { UserContext } from "../user/UserProvider"
 import { DirectMessageContext } from "./DirectMessageProvider"
 import { useHistory, useParams } from "react-router-dom"
@@ -14,6 +14,7 @@ export const DirectMessageForm = () => {
     const senderId = parseInt(localStorage.getItem("barkbook_user"))
     const {userId} = useParams()
     const history = useHistory()
+    const errorDialog = useRef()
 
     const [message, setMessage] = useState({
         subject: "",
@@ -42,25 +43,31 @@ export const DirectMessageForm = () => {
         event.preventDefault() //Prevents the browser from submitting the form
     
         if (message.subject === "" || message.message === "") {
-          window.alert("Please select a location and a customer")
+            errorDialog.current.showModal()
+            return
         } else {
           //Invoke addMessage passing the new message object as an argument
           //Once complete, change the url and display the user profile
-          const newMessage = {
+        const newMessage = {
             subject: message.subject,
             message: message.message,
             read: false,
             recipientId: parseInt(userId),
             userId: senderId,
             date: Date.now()
-          }
-          addMessage(newMessage)
+        }
+        addMessage(newMessage)
             .then(() => history.push(`/locations/friends/${user.locationId}`))
         }
-      }
+    }
 
     return (
         <>
+            <dialog className="dialog dialog--password" ref={errorDialog}>
+                <div>Please enter a subject and message</div>
+                <button className="button--close" onClick={e => errorDialog.current.close()}>Close</button>
+            </dialog>
+
             <div className="form-flex">
                 <h1 className="title">Create a Message to {user.name}</h1>
                 <form className="createMessage-form">
