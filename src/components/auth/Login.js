@@ -49,7 +49,7 @@ export const Login = (props) => {
                                 <input ref={email} type="email"
                                     id="email"
                                     className="form-control"
-                                    placeholder="Email address"
+                                    placeholder="demo@barkbook.com"
                                     required autoFocus />
                             </fieldset>
             {/* <div className="login-photo-flex">
