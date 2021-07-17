@@ -40,7 +40,7 @@ Email login: demo@barkbook.com
 
 
 ## Technologies Used
-```
+
 * React
 * Javascript
 * HTML5
@@ -48,7 +48,7 @@ Email login: demo@barkbook.com
 * Git/Github
 * Cloudinary API
 * Json Server
-```
+
 
 ## ERD
 ![Screen Shot 2021-07-06 at 12 11 32 PM](https://user-images.githubusercontent.com/41700717/124633677-84681e80-de53-11eb-9788-00e9fe1720da.png)
