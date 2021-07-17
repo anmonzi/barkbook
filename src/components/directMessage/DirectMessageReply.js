@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from "react"
+import React, { useEffect, useContext, useState, useRef } from "react"
 import { DirectMessageContext } from "./DirectMessageProvider"
 import { useHistory } from 'react-router-dom'
 import "./DirectMessage.css"
@@ -8,6 +8,7 @@ export const DirectMessageReply = ({ userId }) => {
     const { getMessages, addMessage } = useContext(DirectMessageContext)
     const senderId = parseInt(localStorage.getItem("barkbook_user"))
     const history = useHistory()
+    const errorDialog = useRef()
     
     const [message, setMessage] = useState({
         subject: "",
@@ -28,23 +29,24 @@ export const DirectMessageReply = ({ userId }) => {
         event.preventDefault() //Prevents the browser from submitting the form
     
         if (message.subject === "" || message.message === "") {
-          window.alert("Please create a message")
+            errorDialog.current.showModal()
+            return
         } else {
           //Invoke addMessage passing the new message object as an argument
           //Once complete, change the url and display the user profile
-          const newMessage = {
+        const newMessage = {
             subject: message.subject,
             message: message.message,
             read: false,
             recipientId: userId,
             userId: senderId,
             date: Date.now()
-          }
-          addMessage(newMessage)
+        }
+        addMessage(newMessage)
             .then(() => history.push("/messages"))
         }
-      }
- 
+    }
+
 
     useEffect(() => {
         getMessages()
@@ -53,6 +55,11 @@ export const DirectMessageReply = ({ userId }) => {
 
     return (
         <>
+            <dialog className="dialog dialog--password" ref={errorDialog}>
+                <div>Please enter a subject and message</div>
+                <button className="button--close" onClick={e => errorDialog.current.close()}>Close</button>
+            </dialog>
+
             <div className="form-flex">
                 <form className="reply-form">
                 <fieldset>

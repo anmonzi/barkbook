@@ -15,6 +15,7 @@ export const RegisterUpload = (props) => {
     const locationId = useRef()
     const description = useRef()
     const conflictDialog = useRef()
+    const errorDialog = useRef()
     const history = useHistory()
 
     useEffect(() => {
@@ -29,7 +30,11 @@ export const RegisterUpload = (props) => {
 
     const handleRegister = (e) => {
         e.preventDefault()
-        
+        const userLocation = parseInt(locationId.current.value)
+        if (userLocation === 0) {
+            errorDialog.current.showModal()
+            return
+        }
 
         existingUserCheck()
             .then((userExists) => {
@@ -96,6 +101,11 @@ export const RegisterUpload = (props) => {
                 <button className="button--close" onClick={e => conflictDialog.current.close()}>Close</button>
             </dialog>
 
+            <dialog className="dialog dialog--password" ref={errorDialog}>
+                <div>Please select a user location</div>
+                <button className="button--close" onClick={e => errorDialog.current.close()}>Close</button>
+            </dialog>
+
             <form className="form--login" onSubmit={handleRegister} onKeyDown={(event) => checkKeyDown(event)}>
             <div className="login-logo--flex">
                 <h1 className="h3 mb-3 font-weight-normal login-welcome">register for</h1>
@@ -123,7 +133,7 @@ export const RegisterUpload = (props) => {
                 <fieldset>
                     <div className="form-group">
                     <label htmlFor="selectLocation">Choose Your Location </label>
-                        <select ref={locationId} name="locationId" id="userLocation" className="form-control">
+                        <select ref={locationId} name="locationId" id="userLocation" className="form-control" required >
                             <option value="0">Select a location</option>
                             {locations.map(l => (
                             <option key={l.id} value={l.id}>
