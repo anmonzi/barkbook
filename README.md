@@ -45,7 +45,7 @@ Email login: demo@barkbook.com
 * HTML5
 * CSS3
 * Git/Github
-* Cloudinary
+* Cloudinary API
 * Json Server
 
 ### ERD
