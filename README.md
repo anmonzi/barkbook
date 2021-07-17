@@ -13,7 +13,7 @@ Each location populates with dog cards that show a furry friend’s photo and gi
 * Users can send and recieve direct messages to set up a playdate
 * Users can filter through dog parks within Davidson County
 
-### How to Run this application
+## How to Run this application
  
 #### But first, a note about authentication...
 This application uses mock authentication which is purely for demonstration purposes. Therefore the login is completely insecure and would never be implemented in a professional application. Please do not use your personal email when creating an account.
@@ -39,7 +39,8 @@ cd barkbook
 Email login: demo@barkbook.com
 
 
-### Technologies Used
+## Technologies Used
+```
 * React
 * Javascript
 * HTML5
@@ -47,10 +48,11 @@ Email login: demo@barkbook.com
 * Git/Github
 * Cloudinary API
 * Json Server
+```
 
-### ERD
+## ERD
 ![Screen Shot 2021-07-06 at 12 11 32 PM](https://user-images.githubusercontent.com/41700717/124633677-84681e80-de53-11eb-9788-00e9fe1720da.png)
 
 
-### Wireframe
+## Wireframe
 ![Screen Shot 2021-07-06 at 12 17 37 PM](https://user-images.githubusercontent.com/41700717/124634348-40294e00-de54-11eb-9a59-0416b648d196.png)
