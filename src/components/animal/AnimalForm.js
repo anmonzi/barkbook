@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext, useEffect, useState, useRef } from "react"
 import { AnimalEnergyLevelContext } from "../animalEnergyLevel/AnimalEnergyLevelProvider"
 import { AnimalGenderContext } from "../animalGender/AnimalGenderProvider"
 import { AnimalSizeContext } from "../animalSize/AnimalSizeProvider"
@@ -13,16 +13,26 @@ export const AnimalForm = () => {
     const { animalEnergyLevels, getAnimalEnergyLevels } = useContext(AnimalEnergyLevelContext)
     const { animalGenders, getAnimalGenders } = useContext(AnimalGenderContext)
 
-    const [animal, setAnimal] = useState({})
     const [isLoading, setIsLoading] = useState({})
     const [loading, setLoading] = useState(false)
     const [image, setImage] = useState("")
     const [editModeImage, setEditModeImage] = useState("")
-
+    
     const {animalId} = useParams()
     const history = useHistory()
     const userId = parseInt(localStorage.getItem("barkbook_user"))
-
+    const errorDialog = useRef()
+    
+    const [animal, setAnimal] = useState({
+        name: "",
+        userId: userId,
+        animalEnergyLevelId: "",
+        animalSizeId: "",
+        age: "",
+        animalGenderId: "",
+        breed: "",
+        description: ""
+    })
 
     const handleControlledInputChange = (event) => {
         const newAnimal = {...animal}
@@ -30,7 +40,8 @@ export const AnimalForm = () => {
         setAnimal(newAnimal)
     }
 
-    const handleSaveAnimal = () => {
+    const handleUpdateAnimal = (event) => {
+        event.preventDefault()
         if (animalId && image === "") {
             // PUT - update with original animal image
             updateAnimal({
@@ -61,23 +72,32 @@ export const AnimalForm = () => {
                 description: animal.description
             })
             .then(() => history.push("/profile"))
-        } else {
-            // POST - add new animal with uploaded image
-            addAnimal({
-                name: animal.name,
-                userId: userId,
-                animalEnergyLevelId: parseInt(animal.animalEnergyLevelId),
-                animalSizeId: parseInt(animal.animalSizeId),
-                imageURL: image,
-                age: animal.age,
-                animalGenderId: parseInt(animal.animalGenderId),
-                breed: animal.breed,
-                description: animal.description
-            })
-            .then(() => history.push("/profile"))
-        }
+        } 
     }
 
+    const handleSaveAnimal = (event) => {
+        event.preventDefault()
+        if (animal.name === "" || animal.animalEnergyLevelId === "" || animal.animalSizeId === "" ||
+            image === "" || animal.age === "" || animal.animalGenderId === "" || 
+            animal.breed === "" || animal.description === "") {
+            errorDialog.current.showModal()
+            return
+        } else {
+        // POST - add new animal with uploaded image
+        addAnimal({
+            name: animal.name,
+            userId: userId,
+            animalEnergyLevelId: parseInt(animal.animalEnergyLevelId),
+            animalSizeId: parseInt(animal.animalSizeId),
+            imageURL: image,
+            age: animal.age,
+            animalGenderId: parseInt(animal.animalGenderId),
+            breed: animal.breed,
+            description: animal.description
+        })
+        .then(() => history.push("/profile"))
+        } 
+    }
 
 
     const uploadImage = async event => {
@@ -123,8 +143,16 @@ export const AnimalForm = () => {
     }
 
 
+
     return (
         <div className="form-flex">
+
+            <dialog className="dialog dialog--password" ref={errorDialog}>
+                <div>Please fill in all fields</div>
+                <button className="button--close" onClick={e => errorDialog.current.close()}>Close</button>
+            </dialog>
+
+
             <form className="animal-form" onKeyDown={(event) => checkKeyDown(event)}>
             {animalId
             ? <><h2 className="animalForm__title">Update Pet</h2></>
@@ -148,8 +176,8 @@ export const AnimalForm = () => {
             }
                 
             <div className="img-upload-container">
-                <input type="file" name="file" onChange={uploadImage} 
-                className="img-upload" required />
+                <input type="file" name="file" onChange={uploadImage}
+                className="img-upload"  required />
                     {loading
                     ? 
                     <h3>Loading...</h3> 
@@ -228,14 +256,13 @@ export const AnimalForm = () => {
                 </div>
             </fieldset>
             <div className="animal-form-btns">
-                <button className="btn btn-primary"
-                    disabled={isLoading}
-                    onClick={event => {
-                    event.preventDefault() // Prevent browser from submitting the form and refreshing the page
-                    handleSaveAnimal() // handle put or post functionality  ->  ternary statement below - if there's an animalId then load save animal text...else add animal text
-                    }}>
-                {animalId ? <>Update Animal</> : <>Add Animal</>}
-                </button>
+                {/* Ternary for add or update button */}
+                {animalId ?
+                <button className="btn btn-primary" disabled={isLoading} onClick={handleUpdateAnimal}>Update Animal</button> 
+                : 
+                <button className="btn btn-primary" disabled={isLoading} onClick={handleSaveAnimal}>Add Animal</button>
+                }
+                
                 {/* Ternary for delete button - if there's no animal.id don't show button */}
                 {animalId
                 ? <button className="btn btn-primary" onClick={() => {
@@ -244,10 +271,13 @@ export const AnimalForm = () => {
                 }}>Delete Pet</button>
                 : <></>
                 }
+                {animalId ? <></> : <button className="btn btn-primary" onClick={() => {
+                    history.push("/profile")
+                }}>Cancel</button>}
             </div>
             </form>
         </div>
-      )
+    )
 }
 
 
