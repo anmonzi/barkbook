@@ -30,7 +30,8 @@ export const AnimalForm = () => {
         setAnimal(newAnimal)
     }
 
-    const handleSaveAnimal = () => {
+    const handleSaveAnimal = (event) => {
+        event.preventDefault()
         if (animalId && image === "") {
             // PUT - update with original animal image
             updateAnimal({
@@ -230,10 +231,7 @@ export const AnimalForm = () => {
             <div className="animal-form-btns">
                 <button className="btn btn-primary"
                     disabled={isLoading}
-                    onClick={event => {
-                    event.preventDefault() // Prevent browser from submitting the form and refreshing the page
-                    handleSaveAnimal() // handle put or post functionality  ->  ternary statement below - if there's an animalId then load save animal text...else add animal text
-                    }}>
+                    onClick={handleSaveAnimal}>
                 {animalId ? <>Update Animal</> : <>Add Animal</>}
                 </button>
                 {/* Ternary for delete button - if there's no animal.id don't show button */}
@@ -244,10 +242,13 @@ export const AnimalForm = () => {
                 }}>Delete Pet</button>
                 : <></>
                 }
+                {animalId ? <></> : <button className="btn btn-primary" onClick={() => {
+                    history.push("/profile")
+                }}>Cancel</button>}
             </div>
             </form>
         </div>
-      )
+    )
 }
 
 
