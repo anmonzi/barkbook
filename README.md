@@ -49,6 +49,10 @@ Email login: demo@barkbook.com
 * Cloudinary API
 * Json Server
 
+## Application
+![2021-07-18 17 57 14](https://user-images.githubusercontent.com/41700717/126084667-33ca5ce4-444c-4d0c-9391-071a15f31692.gif)
+
+
 
 ## ERD
 ![Screen Shot 2021-07-06 at 12 11 32 PM](https://user-images.githubusercontent.com/41700717/124633677-84681e80-de53-11eb-9788-00e9fe1720da.png)
