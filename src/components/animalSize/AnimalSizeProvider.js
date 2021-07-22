@@ -8,7 +8,7 @@ export const AnimalSizeProvider = (props) => {
     const [filteredSizeValue, setFilteredSizeValue] = useState(0)
 
     const getAnimalSizes = () => {
-        return fetch("http://localhost:8088/animalSizes")
+        return fetch("https://barkbook-api-44wte.ondigitalocean.app/animalSizes")
         .then(res => res.json())
         .then((data) => setAnimalSizes(data))
     }

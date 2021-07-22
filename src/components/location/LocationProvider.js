@@ -9,14 +9,14 @@ export const LocationProvider = (props) => {
     
 
     const getLocations = () => {
-        return fetch("http://localhost:8088/locations?_embed=users")
+        return fetch("https://barkbook-api-44wte.ondigitalocean.app/locations?_embed=users")
             .then(res => res.json())
             .then((data) => setLocations(data)) //updates state
     }
 
 
     const getLocationById = locationId => {
-        return fetch(`http://localhost:8088/locations/${locationId}?_embed=users`)
+        return fetch(`https://barkbook-api-44wte.ondigitalocean.app/locations/${locationId}?_embed=users`)
         .then(res => res.json())
     }
 

@@ -7,26 +7,26 @@ export const AnimalProvider = (props) => {
     const [animals, setAnimals] = useState([])
 
     const getAnimals = () => {
-        return fetch("http://localhost:8088/animals?_expand=user&_expand=animalEnergyLevel&_expand=animalSize&_expand=animalGender")
+        return fetch("https://barkbook-api-44wte.ondigitalocean.app/animals?_expand=user&_expand=animalEnergyLevel&_expand=animalSize&_expand=animalGender")
         .then(res => res.json())
         .then((data) => setAnimals(data))
     }
 
 
     const getAnimalById = animalId => {
-        return fetch(`http://localhost:8088/animals/${animalId}?_expand=user&_expand=animalEnergyLevel&_expand=animalSize&_expand=animalGender`)
+        return fetch(`https://barkbook-api-44wte.ondigitalocean.app/animals/${animalId}?_expand=user&_expand=animalEnergyLevel&_expand=animalSize&_expand=animalGender`)
         .then(res => res.json())
     }
 
     
     const getAnimalByUserId = userId => {
-        return fetch(`http://localhost:8088/animals/?userId=${userId}&_expand=user&_expand=animalEnergyLevel&_expand=animalSize&_expand=animalGender`)
+        return fetch(`https://barkbook-api-44wte.ondigitalocean.app/animals/?userId=${userId}&_expand=user&_expand=animalEnergyLevel&_expand=animalSize&_expand=animalGender`)
         .then(res => res.json())
     }
 
 
     const addAnimal = animalObj => {
-        return fetch("http://localhost:8088/animals", {
+        return fetch("https://barkbook-api-44wte.ondigitalocean.app/animals", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -38,7 +38,7 @@ export const AnimalProvider = (props) => {
 
 
     const updateAnimal = animal => {
-        return fetch(`http://localhost:8088/animals/${animal.id}`, {
+        return fetch(`https://barkbook-api-44wte.ondigitalocean.app/animals/${animal.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -50,7 +50,7 @@ export const AnimalProvider = (props) => {
 
 
     const removeAnimal = animalId => {
-        return fetch(`http://localhost:8088/animals/${animalId}`, {
+        return fetch(`https://barkbook-api-44wte.ondigitalocean.app/animals/${animalId}`, {
             method: "DELETE"
         })
         .then(getAnimals)

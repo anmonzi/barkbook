@@ -7,14 +7,14 @@ export const DirectMessageProvider = (props) => {
     const [messages, setMessages] = useState([])
 
     const getMessages = () => {
-        return fetch("http://localhost:8088/directMessages?_expand=user")
+        return fetch("https://barkbook-api-44wte.ondigitalocean.app/directMessages?_expand=user")
         .then(res => res.json())
         .then((data) => setMessages(data))
     }
 
 
     const addMessage = messageObj => {
-        return fetch("http://localhost:8088/directMessages", {
+        return fetch("https://barkbook-api-44wte.ondigitalocean.app/directMessages", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -25,13 +25,13 @@ export const DirectMessageProvider = (props) => {
     }
 
     const getMessageById = messageId => {
-        return fetch(`http://localhost:8088/directMessages/${messageId}?_expand=user`)
+        return fetch(`https://barkbook-api-44wte.ondigitalocean.app/directMessages/${messageId}?_expand=user`)
         .then(res => res.json())
     }
 
 
     const updateMessage = message => {
-        return fetch(`http://localhost:8088/directMessages/${message.id}`, {
+        return fetch(`https://barkbook-api-44wte.ondigitalocean.app/directMessages/${message.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -42,7 +42,7 @@ export const DirectMessageProvider = (props) => {
     }
 
     const removeMessage = messageId => {
-        return fetch(`http://localhost:8088/directMessages/${messageId}`, {
+        return fetch(`https://barkbook-api-44wte.ondigitalocean.app/directMessages/${messageId}`, {
             method: "DELETE"
         })
         .then(getMessages)

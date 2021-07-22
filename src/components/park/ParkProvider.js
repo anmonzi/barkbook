@@ -8,7 +8,7 @@ export const ParkProvider = (props) => {
 
 
     const getParks = () => {
-        return fetch("http://localhost:8088/parks?_expand=location")
+        return fetch("https://barkbook-api-44wte.ondigitalocean.app/parks?_expand=location")
         .then(res =>  res.json())
         .then((data) => setParks(data))
     }

@@ -8,7 +8,7 @@ export const AnimalEnergyLevelProvider = (props) => {
     const [filteredValue, setFilteredValue] = useState(0)
 
     const getAnimalEnergyLevels = () => {
-        return fetch("http://localhost:8088/animalEnergyLevels")
+        return fetch("https://barkbook-api-44wte.ondigitalocean.app/animalEnergyLevels")
         .then(res => res.json())
         .then((data) => setAnimalEnergyLevels(data))
     }

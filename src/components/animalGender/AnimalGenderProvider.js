@@ -7,7 +7,7 @@ export const AnimalGenderProvider = (props) => {
     const [animalGenders, setAnimalGenders] = useState([])
 
     const getAnimalGenders = () => {
-        return fetch("http://localhost:8088/animalGenders")
+        return fetch("https://barkbook-api-44wte.ondigitalocean.app/animalGenders")
         .then(res => res.json())
         .then((data) => setAnimalGenders(data))
     }
