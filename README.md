@@ -50,6 +50,8 @@ Email login: demo@barkbook.com
 * Json Server
 
 ## Application
+[View Barkbook](https://barkbook-t9wkr.ondigitalocean.app/login)
+
 ![2021-07-18 17 57 14](https://user-images.githubusercontent.com/41700717/126084667-33ca5ce4-444c-4d0c-9391-071a15f31692.gif)
 
 
