@@ -1,5 +1,7 @@
 ## Front End Capstone - NSS Cohort 48 - barkbook
 
+![2021-07-18 17 57 14](https://user-images.githubusercontent.com/41700717/126084667-33ca5ce4-444c-4d0c-9391-071a15f31692.gif)
+
 ### Application Overview
 
 Dog owners know the struggle. In a perfect world, their dog(s) would have other furry friends to play with, but the hassle of finding those playmates leaves us all just wandering to the dog park in hopes of finding that perfect playmate, and their (hopefully) cool human counterpart. With BarkBook, a user can search the Davidson County area by neighborhood and see a list of dogs in the area looking to make a furry connection. 
@@ -12,6 +14,14 @@ Each location populates with dog cards that show a furry friend’s photo and gi
 * Users can filter dogs in a location by size and energy level, and view more details about the pup and their owner
 * Users can send and recieve direct messages to set up a playdate
 * Users can filter through dog parks within Davidson County
+
+## Application
+
+>[Check out the app here](https://barkbook-t9wkr.ondigitalocean.app/login)
+```
+Demo User Credentials
+Email login: demo@barkbook.com
+```
 
 ## How to Run this application
  
@@ -48,12 +58,6 @@ Email login: demo@barkbook.com
 * Git/Github
 * Cloudinary API
 * Json Server
-
-## Application
-[View Barkbook](https://barkbook-t9wkr.ondigitalocean.app/login)
-
-![2021-07-18 17 57 14](https://user-images.githubusercontent.com/41700717/126084667-33ca5ce4-444c-4d0c-9391-071a15f31692.gif)
-
 
 
 ## ERD
