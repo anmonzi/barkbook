@@ -8,13 +8,15 @@ import "./NavBar.css"
 export const NavBar = (props) => {
 
     return (
-        <div className="navbar">
+        <div className="navbar header">
             <div className="navbar__item navbar__logo">
                 <Link className="navbar__link" to="/profile">
                     <img src={barkbook} alt="barkbook logo" className="barkbook__logo logo_nav_mobile"/>
                 </Link>
             </div>
-            <ul className="navbar__innerFlex">
+            <input class="menu-btn" type="checkbox" id="menu-btn" />
+            <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+            <ul className="navbar__innerFlex menu">
                 <li className="navbar__item">
                     <Link className="navbar__link hover" to="/parks">Find A Park</Link>
                 </li>
