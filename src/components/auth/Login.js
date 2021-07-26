@@ -42,7 +42,7 @@ export const Login = (props) => {
                     <form className="form--login" onSubmit={handleLogin}>
                         <div className="login-logo--flex">
                             <h1 className="login-welcome">welcome to</h1>
-                            <img src={barkbook} alt="barkbook logo" className="barkbook__logo__welcome"/>
+                            <img src={barkbook} alt="barkbook logo" className="barkbook__logo__welcome logo_mobile"/>
                             <h2>Please sign in</h2>
                             <fieldset>
                                 <label htmlFor="inputEmail"> Email address </label>

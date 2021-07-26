@@ -11,7 +11,7 @@ export const NavBar = (props) => {
         <div className="navbar">
             <div className="navbar__item navbar__logo">
                 <Link className="navbar__link" to="/profile">
-                    <img src={barkbook} alt="barkbook logo" className="barkbook__logo"/>
+                    <img src={barkbook} alt="barkbook logo" className="barkbook__logo logo_nav_mobile"/>
                 </Link>
             </div>
             <ul className="navbar__innerFlex">
