@@ -23,7 +23,7 @@
 
 .navbar__item {
     list-style-type: none;
-    text-align: right;
+    text-align: center;
     margin: 0 2rem;
 }
 
@@ -32,7 +32,7 @@
     text-decoration: none;
     font-weight: 800;
     font-size: 1.05rem;
-    padding: .6rem;
+    padding-top: .6rem;
 }
 
 .hover:hover {
@@ -61,7 +61,7 @@
 
 .mail__icon {
     max-width: 2.5rem;
-    margin-right: 3rem;
+    margin-right: 1rem;
     transition: transform .5s;
 }
 
