@@ -1,0 +1,292 @@
+/* For iPhone 6/7/8 Plus and UP */
+@media only screen and (min-device-width: 375px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3) {
+  h1 {
+    font-size: 2.4rem;
+    margin-top: 3rem;
+  }
+
+  .login-logo--flex {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: 20rem;
+  }
+
+  .login-welcome {
+    font-size: 2.5rem;
+    margin-top: 5rem;
+  }
+
+  .logo_mobile {
+    max-width: 20rem;
+  }
+
+  .container--login {
+    height: 60rem;
+  }
+
+  .logo_nav_mobile {
+    max-width: 12rem;
+    margin-left: 0;
+  }
+
+  .navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    background: linear-gradient(
+      90deg,
+      rgb(110, 94, 254) 0%,
+      rgba(73, 63, 252) 100%
+    );
+    margin-top: 0;
+  }
+
+  .navbar__innerFlex {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: -3rem;
+  }
+
+  .navbar__item {
+    margin: 0 0.6rem;
+  }
+
+  .mail__icon {
+    margin-right: 0.7rem;
+  }
+
+  .profileCards__user,
+  .profileCards__animal {
+    max-width: 21rem;
+  }
+
+  .user-form,
+  .animal-form,
+  .createMessage-form,
+  .reply-form {
+    width: 80%;
+  }
+
+  .park,
+  .parks {
+    flex-basis: 90%;
+  }
+
+  .parksFilter-buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+    justify-content: center;
+  }
+
+  .locations {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    flex-basis: 100%;
+  }
+
+  .animalCard {
+    width: 322px;
+  }
+
+  .filter-select {
+    margin: 1rem 0.5rem;
+  }
+
+  .mobile-break {
+    display: none;
+  }
+
+  .parentCard-flex {
+    display: flex;
+    justify-content: center;
+  }
+
+  .detail__card {
+    flex-direction: column;
+    max-width: 21rem;
+    height: 67rem;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .detail__cardUser {
+    border: none;
+  }
+
+  .detail__cardAnimal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 19rem;
+    height: fit-content;
+    margin: 0;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px rgb(218, 218, 218) solid;
+  }
+
+  .detail__cardUser {
+    display: flex;
+    flex-direction: column;
+    width: 19rem;
+    align-items: center;
+    height: fit-content;
+    padding: 0;
+    margin-top: 2rem;
+  }
+
+  .form-control {
+    width: 91%;
+  }
+
+  .messages {
+    flex-basis: 95%;
+  }
+
+  /* header */
+  .header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
+
+  .header li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  /* menu */
+
+  .header .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
+  }
+
+  /* menu icon */
+
+  .header .menu-icon {
+    cursor: pointer;
+    display: flex;
+    float: right;
+    padding: 28px 20px;
+    margin-left: 5rem;
+    position: relative;
+    user-select: none;
+  }
+
+  .header .menu-icon .navicon {
+    background: white;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background 0.2s ease-out;
+    width: 18px;
+  }
+
+  .header .menu-icon .navicon:before,
+  .header .menu-icon .navicon:after {
+    background: white;
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all 0.2s ease-out;
+    width: 100%;
+  }
+
+  .header .menu-icon .navicon:before {
+    top: 5px;
+  }
+
+  .header .menu-icon .navicon:after {
+    top: -5px;
+  }
+
+  /* menu btn */
+
+  .header .menu-btn {
+    display: none;
+  }
+
+  .header .menu-btn:checked ~ .menu {
+    max-height: 240px;
+    background: transparent;
+  }
+
+  .header .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+  }
+
+  .header .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+  }
+
+  .header .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+  }
+
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    top: 0;
+  }
+
+  /* 48em = 768px */
+
+  @media (min-width: 48em) {
+    .header li {
+      float: left;
+    }
+    .header li a {
+      padding: 20px 30px;
+    }
+    .header .menu {
+      clear: none;
+      float: right;
+      max-height: none;
+    }
+    .header .menu-icon {
+      display: none;
+    }
+  }
+
+  .logout__button {
+    margin-right: 0.2rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .barkbook__logo:hover {
+    transform: none;
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  .mail__icon:hover {
+    transform: none;
+  }
+
+  .hover:hover {
+    background-color: transparent;
+    border-radius: 18px;
+    transition: none;
+  }
+
+  .hover:active {
+    background-color: transparent;
+    opacity: 1;
+    transition: none;
+  }
+}
