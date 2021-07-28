@@ -20,8 +20,8 @@ export const UserProfile = () => {
             
     return (
         <section>
-            <div className="user__welcome">
-                <h1>Welcome, {user.name}</h1>
+            <div>
+                <h1 className="user__welcome">Welcome, {user.name}</h1>
             </div>
             <div className="parent-flex">
                 <div className="profileCards__flex">

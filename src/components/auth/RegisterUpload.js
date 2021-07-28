@@ -109,7 +109,7 @@ export const RegisterUpload = (props) => {
             <form className="form--login" onSubmit={handleRegister} onKeyDown={(event) => checkKeyDown(event)}>
             <div className="login-logo--flex">
                 <h1 className="h3 mb-3 font-weight-normal login-welcome">register for</h1>
-                <img src={barkbook} alt="barkbook logo" className="barkbook__logo__welcome"/>
+                <img src={barkbook} alt="barkbook logo" className="barkbook__logo__welcome logo_mobile"/>
             </div>
                 <div>
                     <h3>Upload a Profile Image</h3>

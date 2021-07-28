@@ -23,8 +23,8 @@
 
 .navbar__item {
     list-style-type: none;
-    text-align: right;
-    margin: 0 2rem;
+    text-align: center;
+    margin: 0 1rem;
 }
 
 .navbar__link {
@@ -61,7 +61,7 @@
 
 .mail__icon {
     max-width: 2.5rem;
-    margin-right: 3rem;
+    margin-right: 1rem;
     transition: transform .5s;
 }
 
