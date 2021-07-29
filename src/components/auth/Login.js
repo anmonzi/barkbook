@@ -1,4 +1,5 @@
 import React, { useRef } from "react"
+import { isMobile } from "react-device-detect";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom"
 import barkbook from "../nav/barkbook.png"
@@ -25,7 +26,12 @@ export const Login = (props) => {
                     localStorage.setItem("barkbook_user", exists.id)
                     history.push("/profile")
                 } else {
-                    existDialog.current.showModal()
+                    if (isMobile) {
+                        window.alert("User does not exist")
+                        return
+                    } else if (!isMobile) {
+                        existDialog.current.showModal()
+                    }
                 }
             })
     }

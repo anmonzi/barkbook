@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState, useRef } from "react"
+import { isMobile } from "react-device-detect"
 import { AnimalEnergyLevelContext } from "../animalEnergyLevel/AnimalEnergyLevelProvider"
 import { AnimalGenderContext } from "../animalGender/AnimalGenderProvider"
 import { AnimalSizeContext } from "../animalSize/AnimalSizeProvider"
@@ -77,26 +78,52 @@ export const AnimalForm = () => {
 
     const handleSaveAnimal = (event) => {
         event.preventDefault()
-        if (animal.name === "" || animal.animalEnergyLevelId === "" || animal.animalSizeId === "" ||
+        if (isMobile) {
+            if (animal.name === "" || animal.animalEnergyLevelId === "" || animal.animalSizeId === "" ||
+            image === "" || animal.age === "" || animal.animalGenderId === "" || 
+            animal.breed === "" || animal.description === "") {
+            window.alert("Please fill in all fields")
+            return
+            } else {
+            // POST - add new animal with uploaded image
+            addAnimal({
+                name: animal.name,
+                userId: userId,
+                animalEnergyLevelId: parseInt(animal.animalEnergyLevelId),
+                animalSizeId: parseInt(animal.animalSizeId),
+                imageURL: image,
+                age: animal.age,
+                animalGenderId: parseInt(animal.animalGenderId),
+                breed: animal.breed,
+                description: animal.description
+            })
+            .then(() => history.push("/profile"))
+            } 
+        }
+
+        if (!isMobile) {
+            if (animal.name === "" || animal.animalEnergyLevelId === "" || animal.animalSizeId === "" ||
             image === "" || animal.age === "" || animal.animalGenderId === "" || 
             animal.breed === "" || animal.description === "") {
             errorDialog.current.showModal()
             return
-        } else {
-        // POST - add new animal with uploaded image
-        addAnimal({
-            name: animal.name,
-            userId: userId,
-            animalEnergyLevelId: parseInt(animal.animalEnergyLevelId),
-            animalSizeId: parseInt(animal.animalSizeId),
-            imageURL: image,
-            age: animal.age,
-            animalGenderId: parseInt(animal.animalGenderId),
-            breed: animal.breed,
-            description: animal.description
-        })
-        .then(() => history.push("/profile"))
-        } 
+            } else {
+            // POST - add new animal with uploaded image
+            addAnimal({
+                name: animal.name,
+                userId: userId,
+                animalEnergyLevelId: parseInt(animal.animalEnergyLevelId),
+                animalSizeId: parseInt(animal.animalSizeId),
+                imageURL: image,
+                age: animal.age,
+                animalGenderId: parseInt(animal.animalGenderId),
+                breed: animal.breed,
+                description: animal.description
+            })
+            .then(() => history.push("/profile"))
+            } 
+        }
+        
     }
 
 
