@@ -5,6 +5,14 @@
     margin-top: 3rem;
   }
 
+  .modal-backdrop {
+    display: none;
+  }
+
+  .dialog {
+    display: none;
+  }
+
   .login-logo--flex {
     display: flex;
     align-items: center;

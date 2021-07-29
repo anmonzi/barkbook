@@ -1,5 +1,5 @@
 @import url(./components/mediaQueries/WebBrowser.css);
-/* @import url(./components/mediaQueries/iPad.css); */
+@import url(./components/mediaQueries/iPad.css);
 @import url(./components/mediaQueries/iPhonePlus.css);
 @import url(./components/mediaQueries/iPhoneOldGen.css);
 
