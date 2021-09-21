@@ -11,7 +11,7 @@ export const Login = (props) => {
     const history = useHistory()
 
     const existingUserCheck = () => {
-        return fetch(`https://barkbook-api-44wte.ondigitalocean.app/users?email=${email.current.value}`)
+        return fetch(`https://barkbook-api-q3b97.ondigitalocean.app/users?email=${email.current.value}`)
             .then(res => res.json())
             .then(user => user.length ? user[0] : false)
     }

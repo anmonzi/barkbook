@@ -11,7 +11,7 @@ import { RegisterUpload } from "./auth/RegisterUpload"
 
 
 export const BarkBook = () => (
-    <>
+  <>
     <Route
       render={() => {
         if (localStorage.getItem("barkbook_user")) {
@@ -32,9 +32,9 @@ export const BarkBook = () => (
     </Route>
 
     <LocationProvider>
-        <Route path="/register">
-            <RegisterUpload />
-        </Route>
+      <Route path="/register">
+        <RegisterUpload />
+      </Route>
     </LocationProvider>
   </>
-)
+);

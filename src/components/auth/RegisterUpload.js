@@ -23,7 +23,7 @@ export const RegisterUpload = (props) => {
     }, [])
 
     const existingUserCheck = () => {
-        return fetch(`https://barkbook-api-44wte.ondigitalocean.app/users?email=${email.current.value}`)
+        return fetch(`https://barkbook-api-q3b97.ondigitalocean.app/users?email=${email.current.value}`)
             .then(res => res.json())
             .then(user => !!user.length)
     }
@@ -39,7 +39,7 @@ export const RegisterUpload = (props) => {
         existingUserCheck()
             .then((userExists) => {
                 if (!userExists) {
-                    fetch("https://barkbook-api-44wte.ondigitalocean.app/users", { 
+                    fetch("https://barkbook-api-q3b97.ondigitalocean.app/users", { 
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"
