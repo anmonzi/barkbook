@@ -1,5 +1,5 @@
-/* For iPhones 6/7/8 */
-@media only screen and (min-device-width: 375px) and (max-device-width: 500px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
+/* For iPad Pro */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
   h1 {
     font-size: 2.4rem;
     margin-top: 3rem;
@@ -17,7 +17,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    max-width: 20rem;
+    /* max-width: 20rem; */
   }
 
   .login-welcome {
@@ -30,11 +30,11 @@
   }
 
   .container--login {
-    height: 60rem;
+    height: 86rem;
   }
 
   .logo_nav_mobile {
-    max-width: 8rem;
+    max-width: 14rem;
     margin-left: 0;
   }
 
@@ -62,7 +62,7 @@
   }
 
   .navbar__item {
-    margin: 0 0.6rem;
+    margin: 0 2rem;
   }
 
   .mail__icon {
@@ -90,7 +90,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     margin-bottom: 2rem;
-    padding: 0 1rem;
+    padding: 0 3rem;
     justify-content: center;
   }
 
@@ -102,7 +102,7 @@
   }
 
   .animalCard {
-    width: 322px;
+    width: 312px;
   }
 
   .filter-select {
@@ -191,14 +191,15 @@
     display: flex;
     float: right;
     padding: 28px 20px;
-    margin-left: 5rem;
+    margin-left: 10rem;
     position: relative;
     user-select: none;
   }
 
   .header .menu-icon .navicon {
     background: white;
-    display: block;
+    display: flex;
+    flex-direction: end;
     height: 2px;
     position: relative;
     transition: background 0.2s ease-out;
@@ -254,7 +255,7 @@
 
   /* 48em = 768px */
 
-  @media (min-width: 48em) {
+  @media (min-width: 68em) {
     .header li {
       float: left;
     }
@@ -276,25 +277,25 @@
     padding: 0.2rem 0.5rem;
   }
 
-  .barkbook__logo:hover {
-    transform: none;
-    backface-visibility: hidden;
-    perspective: 1000px;
-  }
+  /* .barkbook__logo:hover {
+            transform: none;
+            backface-visibility: hidden;
+            perspective: 1000px;
+        } */
 
-  .mail__icon:hover {
-    transform: none;
-  }
+  /* .mail__icon:hover {
+            transform: none;
+        } */
 
-  .hover:hover {
-    background-color: transparent;
-    border-radius: 18px;
-    transition: none;
-  }
-
-  .hover:active {
-    background-color: transparent;
-    opacity: 1;
-    transition: none;
-  }
+  /* .hover:hover {
+            background-color: transparent;
+            border-radius: 18px;
+            transition: none;
+        }
+        
+        .hover:active {
+            background-color: transparent;
+            opacity: 1;
+            transition: none;
+        } */
 }

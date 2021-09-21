@@ -1,4 +1,5 @@
 import React, { useEffect, useContext, useState, useRef } from "react"
+import { isMobile } from "react-device-detect"
 import { DirectMessageContext } from "./DirectMessageProvider"
 import { useHistory } from 'react-router-dom'
 import "./DirectMessage.css"
@@ -27,24 +28,46 @@ export const DirectMessageReply = ({ userId }) => {
 
     const handleClickSaveMessage = (event) => {
         event.preventDefault() //Prevents the browser from submitting the form
-    
-        if (message.subject === "" || message.message === "") {
-            errorDialog.current.showModal()
-            return
-        } else {
-          //Invoke addMessage passing the new message object as an argument
-          //Once complete, change the url and display the user profile
-        const newMessage = {
-            subject: message.subject,
-            message: message.message,
-            read: false,
-            recipientId: userId,
-            userId: senderId,
-            date: Date.now()
+        if (isMobile) {
+            if (message.subject === "" || message.message === "") {
+                window.alert("Please fill in all fields")
+                return
+            } else {
+                //Invoke addMessage passing the new message object as an argument
+                //Once complete, change the url and display the user profile
+                const newMessage = {
+                  subject: message.subject,
+                  message: message.message,
+                  read: false,
+                  recipientId: userId,
+                  userId: senderId,
+                  date: Date.now()
+                }
+                addMessage(newMessage)
+                .then(() => history.push("/messages"))
+              }
+        } 
+
+        if (!isMobile) {
+            if (message.subject === "" || message.message === "") {
+                errorDialog.current.showModal()
+                return
+            } else {
+                //Invoke addMessage passing the new message object as an argument
+                //Once complete, change the url and display the user profile
+                const newMessage = {
+                subject: message.subject,
+                message: message.message,
+                read: false,
+                recipientId: userId,
+                userId: senderId,
+                date: Date.now()
+                }
+                addMessage(newMessage)
+                .then(() => history.push("/messages"))
+            }
         }
-        addMessage(newMessage)
-            .then(() => history.push("/messages"))
-        }
+          
     }
 
 
