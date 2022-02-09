@@ -16,11 +16,6 @@ Each location populates with dog cards that show a furry friend’s photo and gi
 
 ## Application
 
->[Check out the app here](https://barkbook-wcjgg.ondigitalocean.app/login)
-```
-Demo User Credentials
-Email login: demo@barkbook.com
-```
 ![2021-07-18 17 57 14](https://user-images.githubusercontent.com/41700717/126084667-33ca5ce4-444c-4d0c-9391-071a15f31692.gif)
 
 
